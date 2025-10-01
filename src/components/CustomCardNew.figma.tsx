@@ -12,8 +12,8 @@ figma.connect(
   "https://www.figma.com/design/KLNk6eJCBd573J4Qi5oHVs/Accelerant-MUI-DS-test?node-id=15702%3A108812",
   {
     props: {
-      title: figma.string("Title"),
-      subtitle: figma.string("Subtitle"),
+      title: figma.string("Header"),
+      subtitle: figma.string("Subheader"),
       content: figma.string("Content"),
       imageUrl: figma.string("Image URL"),
       showPlaceholder: figma.boolean("Show Placeholder"),
