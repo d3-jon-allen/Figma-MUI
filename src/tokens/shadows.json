@@ -1,0 +1,20 @@
+{
+  "shadow-0": {
+    "value": "0px 4px 20px rgba(0,0,0,0.5)",
+    "type": "shadow",
+    "description": "Shadow from Mask Group",
+    "figmaId": "7852:80290"
+  },
+  "shadow-1": {
+    "value": "0px 4px 5px rgba(0,0,0,0.5)",
+    "type": "shadow",
+    "description": "Shadow from <Paper>",
+    "figmaId": "I11649:155378;11501:186167"
+  },
+  "shadow-2": {
+    "value": "0px 1px 10px rgba(0,0,0,0.5)",
+    "type": "shadow",
+    "description": "Shadow from <Paper>",
+    "figmaId": "I11649:155378;11501:186167"
+  }
+}

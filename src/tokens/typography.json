@@ -1,0 +1,112 @@
+{
+  "fontFamily": {
+    "value": "Inter",
+    "type": "text"
+  },
+  "fontWeightLight": {
+    "value": 300,
+    "type": "number"
+  },
+  "fontWeightRegular": {
+    "value": 400,
+    "type": "number"
+  },
+  "fontWeightMedium": {
+    "value": 500,
+    "type": "number"
+  },
+  "fontWeightSemiBold": {
+    "value": 600,
+    "type": "number"
+  },
+  "fontWeightBold": {
+    "value": 700,
+    "type": "number"
+  },
+  "_fontSize": {
+    "0.625rem": {
+      "value": 10,
+      "type": "number"
+    },
+    "0.75rem": {
+      "value": 12,
+      "type": "number"
+    },
+    "0.8125rem": {
+      "value": 13,
+      "type": "number"
+    },
+    "0.875rem": {
+      "value": 14,
+      "type": "number"
+    },
+    "0.9375rem": {
+      "value": 15,
+      "type": "number"
+    },
+    "1rem": {
+      "value": 16,
+      "type": "number"
+    },
+    "1.25rem": {
+      "value": 20,
+      "type": "number"
+    },
+    "1.5rem": {
+      "value": 24,
+      "type": "number"
+    },
+    "2.125rem": {
+      "value": 34,
+      "type": "number"
+    },
+    "3rem": {
+      "value": 48,
+      "type": "number"
+    },
+    "3.75rem": {
+      "value": 60,
+      "type": "number"
+    },
+    "6rem": {
+      "value": 96,
+      "type": "number"
+    }
+  },
+  "Inter": {
+    "value": "Inter",
+    "type": "fontFamily",
+    "description": "Font family from List item",
+    "figmaId": "I15657:91745;11501:188121;11480:166213;11565:156939;10036:120030"
+  },
+  "Nunito": {
+    "value": "Nunito",
+    "type": "fontFamily",
+    "description": "Font family from h2",
+    "figmaId": "I15657:91747;61:59117"
+  },
+  "Roboto": {
+    "value": "Roboto",
+    "type": "fontFamily",
+    "description": "Font family from 100",
+    "figmaId": "I15657:91748;11479:243926;11049:147885;7726:78981;6640:52020;1190:15195;1182:11538"
+  },
+  "Roboto Mono": {
+    "value": "Roboto Mono",
+    "type": "fontFamily",
+    "description": "Font family from Title",
+    "figmaId": "I11101:140437;3943:12896"
+  },
+  "default": {
+    "value": "Arial",
+    "type": "fontFamily",
+    "description": "Font family from body1",
+    "figmaId": "I11140:154338;10988:150235;1377:44767;6605:52865"
+  },
+  "Material Icons": {
+    "value": "Material Icons",
+    "type": "fontFamily",
+    "description": "Font family from Material Icons",
+    "figmaId": "1125:67961"
+  }
+}

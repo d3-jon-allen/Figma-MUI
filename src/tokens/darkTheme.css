@@ -1,0 +1,112 @@
+/* Dark Theme - Actual color values for aliases */
+
+[data-theme="dark"] {
+  /* Theme aliases for components */
+  --theme-paper-background: #1e1e1e;
+  --theme-page-background: #121212;
+  --theme-secondary-background: #2d2d2d;
+  --theme-text-primary: #ffffffde;
+  --theme-text-secondary: #ffffffb3;
+  --theme-text-disabled: #ffffff61;
+  
+  /* Action colors */
+  --theme-action-active: #ffffff8f;
+  --theme-action-hover: #ffffff14;
+  --theme-action-selected: #ffffff29;
+  --theme-action-disabled: #ffffff61;
+  --theme-action-focus: #ffffff1f;
+  --theme-action-disabledBackground: #ffffff1f;
+  
+  /* Primary colors (aligned to Dark.json blue.*) */
+  --theme-primary-main: #cedeff; /* blue.200 */
+  --theme-primary-light: #f9faff; /* blue.50 */
+  --theme-primary-dark: #133bd2; /* blue.500 */
+  --theme-primary-contrastText: #000000de;
+  
+  /* Secondary colors (aligned to Dark.json teal.*) */
+  --theme-secondary-main: #d5fbff; /* teal.200 */
+  --theme-secondary-light: #f0feff; /* teal.50 */
+  --theme-secondary-dark: #76efff; /* teal.400 */
+  --theme-secondary-contrastText: #000000de;
+  
+  /* Success colors */
+  --theme-success-main: #66bb6a;
+  --theme-success-light: #c8e6c9;
+  --theme-success-dark: #388e3c;
+  --theme-success-contrastText: #000000de;
+  
+  /* Error colors */
+  --theme-error-main: #f44336;
+  --theme-error-light: #ffcdd2;
+  --theme-error-dark: #d32f2f;
+  --theme-error-contrastText: #ffffff;
+  
+  /* Warning colors */
+  --theme-warning-main: #ffa726;
+  --theme-warning-light: #ffe0b2;
+  --theme-warning-dark: #f57c00;
+  --theme-warning-contrastText: #000000de;
+  
+  /* Info colors */
+  --theme-info-main: #29b6f6;
+  --theme-info-light: #b3e5fc;
+  --theme-info-dark: #0288d1;
+  --theme-info-contrastText: #000000de;
+  
+  /* Spacing tokens */
+  --theme-spacing-xs: 4px;
+  --theme-spacing-sm: 8px;
+  --theme-spacing-md: 16px;
+  --theme-spacing-lg: 24px;
+  --theme-spacing-xl: 32px;
+  --theme-spacing-xxl: 48px;
+  
+  /* Border radius tokens */
+  --theme-border-radius-default: 24px;
+  
+  /* Chip colors */
+  --theme-chip-background: #424242;
+  --theme-chip-text: #ffffff;
+  
+  /* Font families */
+  --theme-font-family-nunito: 'Nunito', sans-serif;
+  --theme-font-family-inter: 'Inter', sans-serif;
+  --theme-font-family-roboto: 'Roboto', sans-serif;
+  
+  /* Additional color aliases for backward compatibility */
+  --color-action-active: var(--theme-action-active);
+  --color-text-primary: var(--theme-text-primary);
+  --color-text-secondary: var(--theme-text-secondary);
+  --color-warning-contrastText: var(--theme-warning-contrastText);
+  --color-success-contrastText: var(--theme-success-contrastText);
+  --color-info-contrastText: var(--theme-info-contrastText);
+  --color-error-contrastText: var(--theme-error-contrastText);
+  
+  /* Debug: Ensure semantic colors have good contrast */
+  --color-warning-contrastText: #000000;
+  --color-success-contrastText: #000000;
+  --color-info-contrastText: #000000;
+  --color-error-contrastText: #000000;
+  
+  /* Additional tokens for design system examples */
+  --color-primary-main: var(--theme-primary-main);
+  --color-success-light: var(--theme-success-light);
+  --color-success-main: var(--theme-success-main);
+  
+  /* Spacing tokens */
+  --spacing-xs: var(--theme-spacing-xs);
+  --spacing-sm: var(--theme-spacing-sm);
+  --spacing-md: var(--theme-spacing-md);
+  --spacing-lg: var(--theme-spacing-lg);
+  
+  /* Shadow tokens */
+  --shadow-0: '0px 0px 0px 0px rgba(0,0,0,0)';
+  --shadow-1: '0px 1px 3px 0px rgba(0,0,0,0.12)';
+  
+  /* Font family tokens */
+  --font-family-roboto: var(--theme-font-family-roboto);
+  
+  /* Additional theme tokens for enhanced components */
+  --theme-border: #424242;
+  --theme-divider: #ffffff1f; /* Dark.json divider */
+}

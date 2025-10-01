@@ -1,0 +1,27 @@
+// Only export the icons that are actually being used in the app
+export { default as AddFilled } from './AddFilled';
+export { default as ApartmentFilled } from './ApartmentFilled';
+export { default as ArrowBackFilled } from './ArrowBackFilled';
+export { default as ArrowDropDownFilled } from './ArrowDropDownFilled';
+export { default as ArrowForwardFilled } from './ArrowForwardFilled';
+export { default as CheckCircleFilled } from './CheckCircleFilled';
+export { default as CheckCircleOutlined } from './CheckCircleOutlined';
+export { default as CheckFilled } from './CheckFilled';
+export { default as ChevronLeftFilled } from './ChevronLeftFilled';
+export { default as ChevronRightFilled } from './ChevronRightFilled';
+export { default as ContentPasteOutlined } from './ContentPasteOutlined';
+export { default as DeleteFilled } from './DeleteFilled';
+export { default as EditFilled } from './EditFilled';
+export { default as ErrorFilled } from './ErrorFilled';
+export { default as FavoriteFilled } from './FavoriteFilled';
+export { default as HomeFilled } from './HomeFilled';
+export { default as InfoFilled } from './InfoFilled';
+export { default as MenuFilled } from './MenuFilled';
+export { default as PeopleFilled } from './PeopleFilled';
+export { default as PhotoOutlined } from './PhotoOutlined';
+export { default as PlayArrowFilled } from './PlayArrowFilled';
+export { default as SearchFilled } from './SearchFilled';
+export { default as SettingsFilled } from './SettingsFilled';
+export { default as StarSharp } from './StarSharp';
+export { default as UploadFileFilled } from './UploadFileFilled';
+export { default as WarningAmberOutlined } from './WarningAmberOutlined';

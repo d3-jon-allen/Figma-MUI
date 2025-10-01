@@ -1,0 +1,60 @@
+/* Component Styles - Using aliases that reference theme-specific values */
+
+/* Paper Components */
+.MuiPaper-root,
+.MuiPaper-root.MuiPaper-elevation1,
+.MuiPaper-root.MuiPaper-elevation2,
+.MuiPaper-root.MuiPaper-elevation3,
+.MuiPaper-root.MuiPaper-elevation4,
+.MuiPaper-root.MuiPaper-elevation5,
+.MuiPaper-root.MuiPaper-elevation6,
+.MuiPaper-root.MuiPaper-elevation7,
+.MuiPaper-root.MuiPaper-elevation8,
+.MuiPaper-root.MuiPaper-elevation9,
+.MuiPaper-root.MuiPaper-elevation10,
+.MuiPaper-root.MuiPaper-elevation11,
+.MuiPaper-root.MuiPaper-elevation12,
+.MuiPaper-root.MuiPaper-elevation13,
+.MuiPaper-root.MuiPaper-elevation14,
+.MuiPaper-root.MuiPaper-elevation15,
+.MuiPaper-root.MuiPaper-elevation16,
+.MuiPaper-root.MuiPaper-elevation17,
+.MuiPaper-root.MuiPaper-elevation18,
+.MuiPaper-root.MuiPaper-elevation19,
+.MuiPaper-root.MuiPaper-elevation20,
+.MuiPaper-root.MuiPaper-elevation21,
+.MuiPaper-root.MuiPaper-elevation22,
+.MuiPaper-root.MuiPaper-elevation23,
+.MuiPaper-root.MuiPaper-elevation24 {
+  background-color: var(--theme-paper-background);
+  color: var(--theme-text-primary);
+}
+
+/* Container Components */
+.MuiContainer-root {
+  background-color: var(--theme-page-background);
+}
+
+/* Typography Components */
+.MuiTypography-root {
+  color: inherit;
+}
+
+/* Body and global styles */
+body {
+  background-color: var(--theme-page-background);
+  color: var(--theme-text-primary);
+}
+
+/* Theme transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Additional component overrides */
+div[class*="MuiPaper-root"] {
+  background-color: var(--theme-paper-background);
+  color: var(--theme-text-primary);
+}
+
+
