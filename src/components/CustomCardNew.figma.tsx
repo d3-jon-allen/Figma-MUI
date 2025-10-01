@@ -1,3 +1,4 @@
+import React from "react"
 import CustomCardNew from "./CustomCardNew"
 import figma from "@figma/code-connect"
 
