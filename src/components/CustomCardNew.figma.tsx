@@ -19,9 +19,9 @@ figma.connect(
     },
     example: (props) => (
       <CustomCardNew
-        title={(props as any).title}
-        subtitle={(props as any).subtitle}
-        content={(props as any).content}
+        title="Test Title"
+        subtitle="Test Subtitle"
+        content="Test content"
       />
     ),
   },
