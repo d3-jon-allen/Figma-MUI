@@ -14,7 +14,7 @@ figma.connect(
   {
     props: {
       title: figma.string("title"),
-      subtitle: figma.string("subheader"),
+      subtitle: figma.string("subtitle"),
       content: figma.string("Content"),
       imageUrl: figma.string("Image URL"),
       showPlaceholder: figma.boolean("Show Placeholder"),
