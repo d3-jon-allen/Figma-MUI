@@ -16,100 +16,13 @@ figma.connect(
       title: figma.string("title"),
       subtitle: figma.string("subtitle"),
       content: figma.string("Content"),
-      imageUrl: figma.string("Image URL"),
-      showPlaceholder: figma.boolean("Show Placeholder"),
-      categoriesCsv: figma.string("Categories (comma-separated)"),
-      usageText: figma.string("Usage Text"),
-      categoryColorsCsv: figma.string("Chip Colors (comma-separated)"),
-      categoryVariantsCsv: figma.string("Chip Variants (filled|outlined, comma-separated)"),
-      // Simplified actions mapping (up to 2 actions)
-      action1Label: figma.string("Primary Action Label"),
-      action1Variant: figma.enum("Primary Action Variant", {
-        Contained: "contained",
-        Outlined: "outlined",
-        Text: "text",
-      }),
-      action1Color: figma.enum("Primary Action Color", {
-        Primary: "primary",
-        Secondary: "secondary",
-        Error: "error",
-        Warning: "warning",
-        Info: "info",
-        Success: "success",
-      }),
-      action2Label: figma.string("Secondary Action Label"),
-      action2Variant: figma.enum("Secondary Action Variant", {
-        Contained: "contained",
-        Outlined: "outlined",
-        Text: "text",
-      }),
-      action2Color: figma.enum("Secondary Action Color", {
-        Primary: "primary",
-        Secondary: "secondary",
-        Error: "error",
-        Warning: "warning",
-        Info: "info",
-        Success: "success",
-      }),
     },
-    example: (props) => {
-      const categories = (props as any).categoriesCsv
-        ? (props as any).categoriesCsv
-            .split(",")
-            .map((s: string) => s.trim())
-            .filter(Boolean)
-        : []
-
-      const categoryColors = (props as any).categoryColorsCsv
-        ? (props as any).categoryColorsCsv
-            .split(",")
-            .map((s: string) => s.trim())
-            .filter(Boolean)
-        : []
-
-      const categoryVariants = (props as any).categoryVariantsCsv
-        ? (props as any).categoryVariantsCsv
-            .split(",")
-            .map((s: string) => s.trim())
-            .filter(Boolean)
-        : []
-
-      const actions = [] as Array<{
-        label: string
-        variant?: "contained" | "outlined" | "text"
-        color?: "primary" | "secondary" | "error" | "warning" | "info" | "success"
-      }>
-
-      if ((props as any).action1Label) {
-        actions.push({
-          label: (props as any).action1Label,
-          variant: (props as any).action1Variant,
-          color: (props as any).action1Color,
-        })
-      }
-
-      if ((props as any).action2Label) {
-        actions.push({
-          label: (props as any).action2Label,
-          variant: (props as any).action2Variant,
-          color: (props as any).action2Color,
-        })
-      }
-
-      return (
-        <CustomCardNew
-          title={(props as any).title}
-          subtitle={(props as any).subtitle}
-          content={(props as any).content}
-          imageUrl={(props as any).imageUrl}
-          showPlaceholder={(props as any).showPlaceholder}
-          categories={categories}
-          usageText={(props as any).usageText}
-          categoryColors={categoryColors as any}
-          categoryVariants={categoryVariants as any}
-          actions={actions}
-        />
-      )
-    },
+    example: (props) => (
+      <CustomCardNew
+        title={(props as any).title}
+        subtitle={(props as any).subtitle}
+        content={(props as any).content}
+      />
+    ),
   },
 )
