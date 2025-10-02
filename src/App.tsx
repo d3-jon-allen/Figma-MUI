@@ -149,6 +149,43 @@ function HomePage() {
         </Typography>
       </Box>
 
+      {/* Button Test Showcase */}
+      <Paper elevation={3} sx={{ 
+        p: 4, 
+        mb: 4,
+        backgroundColor: 'var(--color-background-paper)',
+        color: 'var(--color-text-primary)'
+      }}>
+        <Typography variant="h4" gutterBottom>
+          🔘 Button Test Showcase
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 3, color: 'var(--theme-text-secondary)' }}>
+          Testing different button variants and styles from your Figma design
+        </Typography>
+        
+        <Box sx={{ 
+          display: 'flex', 
+          gap: 2, 
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          alignItems: 'center',
+          p: 2,
+          backgroundColor: 'var(--theme-page-background)',
+          borderRadius: 2,
+          border: '1px solid var(--theme-border)'
+        }}>
+          <Button color="primary" size="large" variant="contained">
+            Here's a primary button
+          </Button>
+          <Button color="secondary" size="large" variant="contained">
+            Here's a secondary button
+          </Button>
+          <Button color="primary" size="large" variant="outlined">
+            Here's an outline button
+          </Button>
+        </Box>
+      </Paper>
+
       {/* New CustomCard Showcase */}
       <Paper elevation={3} sx={{ 
         p: 4, 
