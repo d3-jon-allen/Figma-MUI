@@ -2,10 +2,16 @@ import React from "react"
 import SimpleCard, { SimpleCardProps } from "./SimpleCard"
 import figma from "@figma/code-connect"
 
-type AdapterProps = SimpleCardProps
+type AdapterProps = Omit<SimpleCardProps, 'categories' | 'actions'> & {
+  category1?: string
+  category2?: string
+  category3?: string
+}
 
 const SimpleCardAdapter: React.FC<AdapterProps> = (props) => {
-  return <SimpleCard {...props} />
+  const { category1, category2, category3, ...rest } = props
+  const categories = [category1, category2, category3].filter(Boolean) as string[]
+  return <SimpleCard {...rest} categories={categories} />
 }
 
 figma.connect(
@@ -51,11 +57,6 @@ figma.connect(
         avatarText="H"
       />
     ),
-    transform: (props) => {
-      const { category1, category2, category3, ...rest } = props as any
-      const categories = [category1, category2, category3].filter(Boolean)
-      return { ...rest, categories }
-    },
   },
 )
 
