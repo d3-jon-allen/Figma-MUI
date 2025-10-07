@@ -26,71 +26,72 @@ interface CustomCardProps {
   className?: string
 }
 
+const defaultCategories = [
+  'Pricing & Underwriting',
+  'Product & Operations',
+  'Technology',
+]
+
 const CustomCardNew: React.FC<CustomCardProps> = ({ 
-  title,
-  subtitle,
-  content,
-  categories = [],
-  usageText,
+  title = 'Test Title',
+  subtitle = 'Test Subtitle',
+  content = 'SchemeServe gives you the confidence to build your own schemes, and beat your competitors to market. ',
+  categories = defaultCategories,
+  usageText = 'Used by 10+ Members',
   categoryColors = [],
   categoryVariants = [],
   imageUrl,
   showPlaceholder = false,
-  actions = [],
-  className = ""
+  actions = [{ label: 'See details', variant: 'outlined', color: 'primary' }],
+  className = "",
 }) => {
   return (
     <Paper 
       elevation={1}
-      className={`flex flex-col items-start justify-start relative w-full max-w-sm ${className}`}
+      className={`flex flex-col items-start justify-start relative w-full ${className}`}
       sx={{
-        backgroundColor: 'var(--theme-paper-background)',
-        borderRadius: '8px',
+        backgroundColor: 'var(--theme-background-paper)',
+        borderRadius: '12px',
         overflow: 'hidden',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+        boxShadow: '0px 1px 3px 0px rgba(0,0,0,0.12), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.20)',
       }}
     >
       {/* Image Header Section */}
       {(imageUrl || showPlaceholder) && (
-        <Box 
+        <Box
           className="relative w-full h-48 overflow-hidden"
           sx={{
-            backgroundColor: showPlaceholder ? 'var(--theme-action-active)' : 'transparent'
+            backgroundColor: showPlaceholder ? 'var(--theme-action-active)' : 'transparent',
           }}
         >
           {imageUrl ? (
-            <img 
-              src={imageUrl} 
+            <img
+              src={imageUrl}
               alt={title || 'Card image'}
               className="w-full h-full object-cover"
             />
-          ) : showPlaceholder && (
-            <Box 
+          ) : (
+            <Box
               className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
               sx={{
                 width: '64px',
                 height: '64px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
               }}
             >
-              {/* Placeholder icon */}
-              <PhotoOutlined 
-                width={40}
-                height={40}
-                color="var(--theme-action-active)"
-              />
+              <PhotoOutlined width={40} height={40} color="var(--theme-background-paper)" />
             </Box>
           )}
         </Box>
       )}
 
       {/* Content Section */}
-      <Box 
+      <Box
         sx={{
-          padding: 'var(--theme-spacing-lg)',
-          width: '100%'
+          padding: '24px',
+          width: '100%',
         }}
       >
         {/* Header Section */}
@@ -139,7 +140,7 @@ const CustomCardNew: React.FC<CustomCardProps> = ({
         
         {/* Content Text */}
         {content && (
-          <Box sx={{ marginBottom: 'var(--theme-spacing-lg)' }}>
+          <Box sx={{ marginBottom: '24px' }}>
             <Typography
               variant="body1"
               sx={{

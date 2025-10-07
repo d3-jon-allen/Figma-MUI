@@ -7,10 +7,13 @@ import figma from "@figma/code-connect"
  * `categories` and `actions` shapes.
  */
 
-type AdapterProps = Omit<CustomCardNewFlatProps, "categories" | "actions"> & {
+type AdapterProps = Omit<CustomCardNewFlatProps, "categories" | "actions" | "categoryColors" | "categoryVariants"> & {
   category1?: string
   category2?: string
   category3?: string
+  category1Color?: "default" | "primary" | "secondary" | "error" | "info" | "success" | "warning"
+  category2Color?: "default" | "primary" | "secondary" | "error" | "info" | "success" | "warning"
+  category3Color?: "default" | "primary" | "secondary" | "error" | "info" | "success" | "warning"
   buttonLabel?: string
   buttonVariant?: "contained" | "outlined" | "text"
   buttonColor?: "primary" | "secondary" | "error" | "warning" | "info" | "success"
@@ -21,13 +24,29 @@ const CustomCardNewFlatAdapter: React.FC<AdapterProps> = (props) => {
     category1,
     category2,
     category3,
+    category1Color,
+    category2Color,
+    category3Color,
     buttonLabel,
     buttonVariant,
     buttonColor,
     ...rest
   } = props
 
-  const categories = [category1, category2, category3].filter(Boolean) as string[]
+  const categories: string[] = []
+  const categoryColors: NonNullable<CustomCardNewFlatProps["categoryColors"]> = []
+  const categoryVariants: NonNullable<CustomCardNewFlatProps["categoryVariants"]> = []
+
+  const pushCategory = (label?: string, color?: AdapterProps["category1Color"]) => {
+    if (!label) return
+    categories.push(label)
+    categoryColors.push(color || "default")
+    categoryVariants.push("filled")
+  }
+
+  pushCategory(category1, category1Color)
+  pushCategory(category2, category2Color)
+  pushCategory(category3, category3Color)
 
   const actions = buttonLabel
     ? [
@@ -43,6 +62,8 @@ const CustomCardNewFlatAdapter: React.FC<AdapterProps> = (props) => {
     <CustomCardNewFlat
       {...rest}
       categories={categories}
+      categoryColors={categoryColors}
+      categoryVariants={categoryVariants}
       actions={actions}
     />
   )
@@ -60,6 +81,33 @@ figma.connect(
       category1: figma.string("category1"),
       category2: figma.string("category2"),
       category3: figma.string("category3"),
+      category1Color: figma.enum("category1Color", {
+        default: "default",
+        primary: "primary",
+        secondary: "secondary",
+        error: "error",
+        info: "info",
+        success: "success",
+        warning: "warning",
+      }),
+      category2Color: figma.enum("category2Color", {
+        default: "default",
+        primary: "primary",
+        secondary: "secondary",
+        error: "error",
+        info: "info",
+        success: "success",
+        warning: "warning",
+      }),
+      category3Color: figma.enum("category3Color", {
+        default: "default",
+        primary: "primary",
+        secondary: "secondary",
+        error: "error",
+        info: "info",
+        success: "success",
+        warning: "warning",
+      }),
       buttonLabel: figma.string("buttonLabel"),
       buttonVariant: figma.enum("buttonVariant", {
         outlined: "outlined",
@@ -75,8 +123,7 @@ figma.connect(
         success: "success",
       }),
       showPlaceholder: figma.boolean("showPlaceholder"),
-      // Optional: expose imageUrl if your design passes a URL
-      // imageUrl: figma.string("imageUrl"),
+      imageUrl: figma.string("imageUrl"),
     },
     example: () => (
       <CustomCardNewFlatAdapter
@@ -87,6 +134,9 @@ figma.connect(
         category1="Pricing & Underwriting"
         category2="Product & Operations"
         category3="Technology"
+        category1Color="default"
+        category2Color="default"
+        category3Color="default"
         buttonLabel="See details"
         buttonVariant="outlined"
         buttonColor="primary"

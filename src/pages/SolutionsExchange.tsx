@@ -76,20 +76,26 @@ const SolutionsExchange: React.FC = () => {
       content:
         'Get top-tier PEO services at zero cost. 13 PEOs compete to cut your costs—save big on benefits, comp, and payroll without switching carriers.',
       categories: ['Pricing & Underwriting', 'Product & Operations', 'Technology'],
+      categoryColors: ['primary', 'secondary', 'default'] as const,
+      buttonColor: 'primary' as const,
     },
     {
       title: 'Turris',
       subtitle: 'Agent onbarding & compliance',
       content:
         'Automate agent onboarding, licensing, and compliance in minutes. Self-serve tools + 6-month free trial & 20% lifetime discount for Members.',
-      categories: ['Pricing & Underwriting', 'Product & Operations', 'Technology'],
+      categories: ['Central Functions', 'Product & Operations', 'Technology'],
+      categoryColors: ['default', 'error', 'info'] as const,
+      buttonColor: 'secondary' as const,
     },
     {
       title: 'Cardinus',
       subtitle: 'Risk Surveys',
       content:
         'High-quality risk surveys to reduce costs, save lives & meet compliance. Nationwide team. Preferred rates for Accelerant Members.',
-      categories: ['Pricing & Underwriting', 'Product & Operations', 'Technology'],
+      categories: ['Claims', 'Product & Operations', 'Technology'],
+      categoryColors: ['default', 'default', 'warning'] as const,
+      buttonColor: 'warning' as const,
     },
   ];
 
@@ -315,10 +321,10 @@ const SolutionsExchange: React.FC = () => {
                     content={secondRowCardProps[index - 3].content}
                     usageText="Used by 10+ Members"
                     categories={secondRowCardProps[index - 3].categories}
-                    categoryColors={["default", "default", "default"]}
+                    categoryColors={secondRowCardProps[index - 3].categoryColors as any}
                     categoryVariants={["filled", "filled", "filled"]}
                     showPlaceholder={true}
-                    actions={[{ label: "See details", variant: "outlined", color: "primary" }]}
+                    actions={[{ label: "See details", variant: "outlined", color: (secondRowCardProps[index - 3] as any).buttonColor }]}
                     className="h-full flex flex-col"
                   />
                 )}
