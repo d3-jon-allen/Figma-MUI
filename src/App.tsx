@@ -26,6 +26,7 @@ import {
 // Import all icons from the icons folder
 import * as Icons from './components/icons';
 import CustomCardNew from './components/CustomCardNew';
+import { SimpleCard } from './components';
 import SidebarNavigation from './components/SidebarNavigation';
 import SolutionsExchange from './pages/SolutionsExchange';
 
@@ -136,6 +137,10 @@ function HomePage() {
       backgroundColor: 'var(--theme-page-background)',
       minHeight: '100vh'
     }}>
+      {/* SimpleCard showcase at top */}
+      <Box sx={{ mb: 4 }}>
+        <SimpleCard />
+      </Box>
       {/* Header */}
       <Box sx={{ mb: 6, textAlign: 'center' }}>
         <Typography variant="h2" component="h1" gutterBottom>
