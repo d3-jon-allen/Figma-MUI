@@ -137,14 +137,16 @@ const ListItem: React.FC<ListItemProps> = ({
 }) => {
   if (button) {
     return (
-      <StyledListItemButton {...(props as any)}>
-        {children}
-      </StyledListItemButton>
+      <StyledListItem {...props}>
+        <StyledListItemButton selected={props.selected} disabled={props.disabled}>
+          {children}
+        </StyledListItemButton>
+      </StyledListItem>
     );
   }
 
   return (
-    <StyledListItem {...(props as any)}>
+    <StyledListItem {...props}>
       {children}
     </StyledListItem>
   );

@@ -1,5 +1,6 @@
 import React from "react"
 import Button from "./Button"
+// @ts-ignore - Provided by Figma Code Connect runtime; not needed in app build
 import figma from "@figma/code-connect"
 
 /**

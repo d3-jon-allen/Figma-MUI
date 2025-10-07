@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import MuiCardHeader, { CardHeaderProps as MuiCardHeaderProps } from '@mui/material/CardHeader';
+import type { TypographyProps as MuiTypographyProps } from '@mui/material/Typography';
 import MuiAvatar, { AvatarProps as MuiAvatarProps } from '@mui/material/Avatar';
 
 const StyledCardHeader = styled(MuiCardHeader)(({ theme }) => ({
@@ -47,8 +48,8 @@ export interface CardHeaderProps extends Omit<MuiCardHeaderProps, 'avatar'> {
   subheader?: React.ReactNode;
   avatar?: React.ReactElement | string;
   action?: React.ReactNode;
-  titleTypographyProps?: any;
-  subheaderTypographyProps?: any;
+  titleTypographyProps?: MuiTypographyProps<'span', { component?: 'span' }>;
+  subheaderTypographyProps?: MuiTypographyProps<'span', { component?: 'span' }>;
 }
 
 export interface AvatarProps extends MuiAvatarProps {

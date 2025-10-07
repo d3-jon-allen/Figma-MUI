@@ -1,9 +1,13 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import MuiAutocomplete, { AutocompleteProps as MuiAutocompleteProps } from '@mui/material/Autocomplete';
+import MuiAutocomplete, { AutocompleteProps as MuiAutocompleteProps, AutocompleteRenderInputParams } from '@mui/material/Autocomplete';
 import { TextField } from '@mui/material';
 
-const StyledAutocomplete = styled(MuiAutocomplete)(() => ({
+// Note: styled() loses generics, so we fix prop typing to a wide signature to
+// avoid mismatches with consumer generics while retaining correct DOM props.
+const StyledAutocomplete = styled(
+  MuiAutocomplete as unknown as React.ComponentType<MuiAutocompleteProps<any, any, any, any>>
+)(() => ({
   '& .MuiOutlinedInput-root': {
     borderRadius: 'var(--theme-spacing-md)',
     transition: 'all 0.3s ease-in-out',
@@ -66,7 +70,7 @@ export interface AutocompleteProps<
   FreeSolo extends boolean | undefined = undefined
 > extends Omit<MuiAutocompleteProps<T, Multiple, DisableClearable, FreeSolo>, 'renderInput'> {
   options: T[];
-  renderInput?: (params: any) => React.ReactNode;
+  renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode;
   label?: string;
   placeholder?: string;
   helperText?: string;
@@ -88,7 +92,7 @@ const Autocomplete = <T,>({
   fullWidth = true,
   ...props
 }: AutocompleteProps<T>) => {
-  const defaultRenderInput = (params: any) => (
+  const defaultRenderInput = (params: AutocompleteRenderInputParams) => (
     <TextField
       {...params}
       label={label}
@@ -107,7 +111,7 @@ const Autocomplete = <T,>({
       renderInput={renderInput || defaultRenderInput}
       fullWidth={fullWidth}
       disabled={disabled}
-      {...(props as any)}
+      {...props}
     />
   );
 };
