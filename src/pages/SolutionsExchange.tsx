@@ -7,6 +7,7 @@ import {
   Autocomplete 
 } from '../components/local';
 import CustomCardNew from '../components/CustomCardNew';
+import { CustomCardNewFlat } from '../components';
 
 const SolutionsExchange: React.FC = () => {
   // Mock data for the cards
@@ -65,6 +66,31 @@ const SolutionsExchange: React.FC = () => {
       region: "Europe",
       category: "Compliance"
     }
+  ];
+
+  // Props sourced from Figma second-row cards (node 15841:6546)
+  const secondRowCardProps = [
+    {
+      title: 'ExpertPEO',
+      subtitle: 'Broker for PEO services',
+      content:
+        'Get top-tier PEO services at zero cost. 13 PEOs compete to cut your costs—save big on benefits, comp, and payroll without switching carriers.',
+      categories: ['Pricing & Underwriting', 'Product & Operations', 'Technology'],
+    },
+    {
+      title: 'Turris',
+      subtitle: 'Agent onbarding & compliance',
+      content:
+        'Automate agent onboarding, licensing, and compliance in minutes. Self-serve tools + 6-month free trial & 20% lifetime discount for Members.',
+      categories: ['Pricing & Underwriting', 'Product & Operations', 'Technology'],
+    },
+    {
+      title: 'Cardinus',
+      subtitle: 'Risk Surveys',
+      content:
+        'High-quality risk surveys to reduce costs, save lives & meet compliance. Nationwide team. Preferred rates for Accelerant Members.',
+      categories: ['Pricing & Underwriting', 'Product & Operations', 'Technology'],
+    },
   ];
 
   return (
@@ -267,20 +293,35 @@ const SolutionsExchange: React.FC = () => {
 
           {/* Cards Grid */}
           <Grid container spacing={3}>
-            {solutions.map((solution) => (
+            {solutions.map((solution, index) => (
               <Grid item xs={12} sm={6} md={4} key={solution.id}>
-                <CustomCardNew
-                  title={solution.title}
-                  subtitle={`${solution.offerType} • ${solution.region}`}
-                  content={solution.description}
-                  usageText="Used by 10+ Members"
-                  categories={[solution.category, solution.status, solution.offerType]}
-                  categoryColors={["primary", "success", "secondary"]}
-                  categoryVariants={["filled", "filled", "filled"]}
-                  showPlaceholder={true}
-                  actions={[{ label: "See details", variant: "contained", color: "primary" }]}
-                  className="h-full flex flex-col"
-                />
+                {index < 3 ? (
+                  <CustomCardNew
+                    title={solution.title}
+                    subtitle={`${solution.offerType} • ${solution.region}`}
+                    content={solution.description}
+                    usageText="Used by 10+ Members"
+                    categories={[solution.category, solution.status, solution.offerType]}
+                    categoryColors={["primary", "success", "secondary"]}
+                    categoryVariants={["filled", "filled", "filled"]}
+                    showPlaceholder={true}
+                    actions={[{ label: "See details", variant: "contained", color: "primary" }]}
+                    className="h-full flex flex-col"
+                  />
+                ) : (
+                  <CustomCardNewFlat
+                    title={secondRowCardProps[index - 3].title}
+                    subtitle={secondRowCardProps[index - 3].subtitle}
+                    content={secondRowCardProps[index - 3].content}
+                    usageText="Used by 10+ Members"
+                    categories={secondRowCardProps[index - 3].categories}
+                    categoryColors={["default", "default", "default"]}
+                    categoryVariants={["filled", "filled", "filled"]}
+                    showPlaceholder={true}
+                    actions={[{ label: "See details", variant: "outlined", color: "primary" }]}
+                    className="h-full flex flex-col"
+                  />
+                )}
               </Grid>
             ))}
           </Grid>
