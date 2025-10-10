@@ -26,9 +26,10 @@ import {
 // Import all icons from the icons folder
 import * as Icons from './components/icons';
 import CustomCardNew from './components/CustomCardNew';
-import { SimpleCard } from './components';
+import { SimpleCard, LessSimpleCard, CustomCardNewFlat } from './components';
 import SidebarNavigation from './components/SidebarNavigation';
 import SolutionsExchange from './pages/SolutionsExchange';
+import Organizations from './pages/Organizations';
 
 // Main App Component with Routing
 function App() {
@@ -122,6 +123,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/solutions-exchange" element={<SolutionsExchange />} />
+            <Route path="/organizations" element={<Organizations />} />
           </Routes>
         </Box>
       </Box>
@@ -137,10 +139,43 @@ function HomePage() {
       backgroundColor: 'var(--theme-page-background)',
       minHeight: '100vh'
     }}>
-      {/* SimpleCard showcase at top */}
-      <Box sx={{ mb: 4 }}>
-        <SimpleCard />
-      </Box>
+      {/* Top: Component comparison section */}
+      <Paper elevation={3} sx={{ 
+        p: 4, 
+        mb: 4,
+        backgroundColor: 'var(--color-background-paper)',
+        color: 'var(--color-text-primary)'
+      }}>
+        <Typography variant="h4" gutterBottom>
+          🔍 Component comparison (top of page)
+        </Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6} lg={3}>
+            <Typography variant="subtitle2" sx={{ mb: 1, color: 'var(--theme-text-secondary)' }}>
+              CustomCardNew
+            </Typography>
+            <CustomCardNew />
+          </Grid>
+          <Grid item xs={12} md={6} lg={3}>
+            <Typography variant="subtitle2" sx={{ mb: 1, color: 'var(--theme-text-secondary)' }}>
+              CustomCardNewFlat
+            </Typography>
+            <CustomCardNewFlat />
+          </Grid>
+          <Grid item xs={12} md={6} lg={3}>
+            <Typography variant="subtitle2" sx={{ mb: 1, color: 'var(--theme-text-secondary)' }}>
+              SimpleCard
+            </Typography>
+            <SimpleCard />
+          </Grid>
+          <Grid item xs={12} md={6} lg={3}>
+            <Typography variant="subtitle2" sx={{ mb: 1, color: 'var(--theme-text-secondary)' }}>
+              LessSimpleCard
+            </Typography>
+            <LessSimpleCard />
+          </Grid>
+        </Grid>
+      </Paper>
       {/* Header */}
       <Box sx={{ mb: 6, textAlign: 'center' }}>
         <Typography variant="h2" component="h1" gutterBottom>

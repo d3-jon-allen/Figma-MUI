@@ -1,0 +1,110 @@
+import React from 'react'
+import { Paper, Typography, Box, Chip, Button, CardHeader } from './local'
+
+export interface LessSimpleCardProps {
+  content?: string
+  elevation?: number
+  className?: string
+  children?: React.ReactNode
+  // Nested content props (mirrors Figma adapter)
+  title?: string
+  subtitle?: string
+  chips?: string[]
+  chip1?: string
+  chip2?: string
+  chip3?: string
+  buttonLabel?: string
+  buttonVariant?: 'contained' | 'outlined' | 'text'
+  buttonColor?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info'
+}
+
+const LessSimpleCard: React.FC<LessSimpleCardProps> = ({
+  content = 'Get top-tier PEO services at zero cost. 13 PEOs compete to cut your costs—save big on benefits, comp, and payroll without switching carriers.',
+  elevation = 1,
+  className = '',
+  children,
+  title = 'InsCipher',
+  subtitle = 'Agent onboarding & compliance',
+  chips,
+  chip1,
+  chip2,
+  chip3,
+  buttonLabel = 'See details',
+  buttonVariant = 'contained',
+  buttonColor = 'primary',
+}) => {
+  const computedChips: string[] = (chips && chips.length > 0)
+    ? chips
+    : ([chip1, chip2, chip3].filter(Boolean) as string[])
+
+  return (
+    <Paper
+      elevation={elevation}
+      className={className}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        position: 'relative',
+        width: '100%',
+        backgroundColor: 'var(--theme-paper-background)',
+        borderRadius: 'var(--theme-border-radius-default)',
+      }}
+    >
+      <Box sx={{ p: 'var(--theme-spacing-lg)', width: '100%' }}>
+        {children ? (
+          children
+        ) : (
+          <>
+            {(title || subtitle) && (
+              <Box sx={{ mb: 'var(--theme-spacing-md)' }}>
+                <CardHeader title={title} subheader={subtitle} sx={{ p: 0 }} />
+              </Box>
+            )}
+
+            {content && (
+              <Typography
+                variant="body1"
+                sx={{
+                  fontFamily: 'var(--theme-font-family-inter)',
+                  fontSize: '16px',
+                  fontWeight: 400,
+                  lineHeight: 1.5,
+                  color: 'var(--theme-text-primary)',
+                  mb: (computedChips.length > 0 || !!buttonLabel) ? 'var(--theme-spacing-md)' : 0,
+                }}
+              >
+                {content}
+              </Typography>
+            )}
+
+            {computedChips.length > 0 && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: 'var(--theme-spacing-sm)',
+                  mb: buttonLabel ? 'var(--theme-spacing-lg)' : 0,
+                }}
+              >
+                {computedChips.map((label, i) => (
+                  <Chip key={`${label}-${i}`} label={label} size="small" />
+                ))}
+              </Box>
+            )}
+
+            {buttonLabel && (
+              <Button variant={buttonVariant} color={buttonColor} size="large">
+                {buttonLabel}
+              </Button>
+            )}
+          </>
+        )}
+      </Box>
+    </Paper>
+  )
+}
+
+export default LessSimpleCard
+
+
