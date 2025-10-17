@@ -108,7 +108,7 @@ const CustomCardNew: React.FC<CustomCardProps> = ({
               variant="h3"
               sx={{
                 fontFamily: 'var(--theme-typography-fontFamily)', // Inter from tokens
-                fontSize: 'var(--theme-typography-_fontSize-1.5rem)', // 24px from tokens
+                fontSize: 'var(--theme-typography-_fontSize-rem_1_5)', // 24px from tokens
                 fontWeight: 'var(--theme-typography-fontWeightRegular)', // 400 from tokens
                 lineHeight: 1.167,
                 color: 'var(--theme-text-primary)',
@@ -125,7 +125,7 @@ const CustomCardNew: React.FC<CustomCardProps> = ({
               variant="body2"
               sx={{
                 fontFamily: 'var(--theme-typography-fontFamily)', // Inter from tokens
-                fontSize: 'var(--theme-typography-_fontSize-0.875rem)', // 14px from tokens
+                fontSize: 'var(--theme-typography-_fontSize-rem_0875)', // 14px from tokens
                 fontWeight: 'var(--theme-typography-fontWeightRegular)', // 400 from tokens
                 lineHeight: 1.43,
                 color: 'var(--theme-text-secondary)',
@@ -145,7 +145,7 @@ const CustomCardNew: React.FC<CustomCardProps> = ({
               variant="body1"
               sx={{
                 fontFamily: 'var(--theme-typography-fontFamily)', // Inter from tokens
-                fontSize: 'var(--theme-typography-_fontSize-1rem)', // 16px from tokens
+                fontSize: 'var(--theme-typography-_fontSize-rem_1)', // 16px from tokens
                 fontWeight: 'var(--theme-typography-fontWeightRegular)', // 400 from tokens
                 lineHeight: 1.5,
                 color: 'var(--theme-text-primary)',
@@ -191,7 +191,7 @@ const CustomCardNew: React.FC<CustomCardProps> = ({
                 size="small"
                 sx={{
                   fontFamily: 'var(--theme-typography-fontFamily)', // Inter from tokens
-                  fontSize: 'var(--theme-typography-_fontSize-0.8125rem)', // 13px from tokens
+                  fontSize: 'var(--theme-typography-_fontSize-rem_08125)', // 13px from tokens
                   fontWeight: 'var(--theme-typography-fontWeightRegular)', // 400 from tokens
                   lineHeight: '18px',
                   borderRadius: '16px',

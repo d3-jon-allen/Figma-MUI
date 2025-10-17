@@ -10,8 +10,8 @@ const StyledButton = styled(MuiButton)(({ ownerState }: any) => ({
   // Figma: button/large 15/26, button/medium 14/24, button/small 14/24
   fontSize:
     ownerState?.size === 'large'
-      ? 'var(--theme-typography-_fontSize-0.9375rem, 15px)'
-      : 'var(--theme-typography-_fontSize-0.875rem, 14px)',
+      ? 'var(--theme-typography-_fontSize-rem_09375, 15px)'
+      : 'var(--theme-typography-_fontSize-rem_0875, 14px)',
   lineHeight: ownerState?.size === 'large' ? '26px' : '24px',
   transition: 'all 0.2s ease-in-out',
   '&.MuiButton-contained': {

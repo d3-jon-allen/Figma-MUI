@@ -105,7 +105,7 @@ const CustomCardNewFlat: React.FC<CustomCardNewFlatProps> = ({
               variant="h3"
               sx={{
                 fontFamily: 'var(--theme-typography-fontFamily)',
-                fontSize: 'var(--theme-typography-_fontSize-1.5rem)',
+                fontSize: 'var(--theme-typography-_fontSize-rem_1_5)',
                 fontWeight: 'var(--theme-typography-fontWeightRegular)',
                 lineHeight: 1.167,
                 color: 'var(--theme-text-primary)',
@@ -122,7 +122,7 @@ const CustomCardNewFlat: React.FC<CustomCardNewFlatProps> = ({
               variant="body2"
               sx={{
                 fontFamily: 'var(--theme-typography-fontFamily)',
-                fontSize: 'var(--theme-typography-_fontSize-0.875rem)',
+                fontSize: 'var(--theme-typography-_fontSize-rem_0875)',
                 fontWeight: 'var(--theme-typography-fontWeightRegular)',
                 lineHeight: 1.43,
                 color: 'var(--theme-text-secondary)',
@@ -141,7 +141,7 @@ const CustomCardNewFlat: React.FC<CustomCardNewFlatProps> = ({
               variant="body1"
               sx={{
                 fontFamily: 'var(--theme-typography-fontFamily)',
-                fontSize: 'var(--theme-typography-_fontSize-1rem)',
+                fontSize: 'var(--theme-typography-_fontSize-rem_1)',
                 fontWeight: 'var(--theme-typography-fontWeightRegular)',
                 lineHeight: 1.5,
                 color: 'var(--theme-text-primary)',
@@ -185,7 +185,7 @@ const CustomCardNewFlat: React.FC<CustomCardNewFlatProps> = ({
                 size="small"
                 sx={{
                   fontFamily: 'var(--theme-typography-fontFamily)',
-                  fontSize: 'var(--theme-typography-_fontSize-0.8125rem)',
+                  fontSize: 'var(--theme-typography-_fontSize-rem_08125)',
                   fontWeight: 'var(--theme-typography-fontWeightRegular)',
                   lineHeight: '18px',
                   borderRadius: '16px',

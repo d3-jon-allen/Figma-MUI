@@ -30,7 +30,7 @@ const LessSimpleCard: React.FC<LessSimpleCardProps> = ({
   chip2,
   chip3,
   buttonLabel = 'See details',
-  buttonVariant = 'contained',
+  buttonVariant = 'outlined',
   buttonColor = 'primary',
 }) => {
   const computedChips: string[] = (chips && chips.length > 0)
@@ -47,11 +47,13 @@ const LessSimpleCard: React.FC<LessSimpleCardProps> = ({
         alignItems: 'flex-start',
         position: 'relative',
         width: '100%',
+        height: '100%',
+        minHeight: '338px',
         backgroundColor: 'var(--theme-paper-background)',
         borderRadius: 'var(--theme-border-radius-default)',
       }}
     >
-      <Box sx={{ p: 'var(--theme-spacing-lg)', width: '100%' }}>
+      <Box sx={{ p: 'var(--theme-spacing-lg)', width: '100%', display: 'flex', flexDirection: 'column', flexGrow: 1, height: '100%' }}>
         {children ? (
           children
         ) : (
@@ -94,9 +96,11 @@ const LessSimpleCard: React.FC<LessSimpleCardProps> = ({
             )}
 
             {buttonLabel && (
-              <Button variant={buttonVariant} color={buttonColor} size="large">
-                {buttonLabel}
-              </Button>
+              <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 'auto' }}>
+                <Button variant={buttonVariant} color={buttonColor} size="large">
+                  {buttonLabel}
+                </Button>
+              </Box>
             )}
           </>
         )}

@@ -18,6 +18,7 @@ export { default as Switch } from './Switch';
 export { default as TextField } from './TextField';
 export { default as Toolbar } from './Toolbar';
 export { default as Typography } from './Typography';
+export { default as Select } from './Select';
 
 // Icons are now imported directly from ./components/icons
 
@@ -40,5 +41,6 @@ export type { SwitchProps } from './Switch';
 export type { TextFieldProps } from './TextField';
 export type { ToolbarProps } from './Toolbar';
 export type { TypographyProps } from './Typography';
+export type { SelectProps } from './Select';
 export type { BoxProps } from './Box';
 export type { ChipProps, AvatarProps } from './Chip';
