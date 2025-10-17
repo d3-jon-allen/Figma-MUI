@@ -132,43 +132,6 @@ function HomePage() {
       backgroundColor: 'var(--theme-page-background)',
       minHeight: '100vh'
     }}>
-      {/* Top: Component comparison section */}
-      <Paper elevation={3} sx={{ 
-        p: 4, 
-        mb: 4,
-        backgroundColor: 'var(--color-background-paper)',
-        color: 'var(--color-text-primary)'
-      }}>
-        <Typography variant="h4" gutterBottom>
-          🔍 Component comparison (top of page)
-        </Typography>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={3}>
-            <Typography variant="subtitle2" sx={{ mb: 1, color: 'var(--theme-text-secondary)' }}>
-              CustomCardNew
-            </Typography>
-            <CustomCardNew />
-          </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <Typography variant="subtitle2" sx={{ mb: 1, color: 'var(--theme-text-secondary)' }}>
-              CustomCardNewFlat
-            </Typography>
-            <CustomCardNewFlat />
-          </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <Typography variant="subtitle2" sx={{ mb: 1, color: 'var(--theme-text-secondary)' }}>
-              SimpleCard
-            </Typography>
-            <SimpleCard />
-          </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <Typography variant="subtitle2" sx={{ mb: 1, color: 'var(--theme-text-secondary)' }}>
-              LessSimpleCard
-            </Typography>
-            <LessSimpleCard />
-          </Grid>
-        </Grid>
-      </Paper>
       {/* Header */}
       <Box sx={{ mb: 6, textAlign: 'center' }}>
         <Typography variant="h2" component="h1" gutterBottom>
@@ -217,83 +180,6 @@ function HomePage() {
             Here's an outline button
           </Button>
         </Box>
-      </Paper>
-
-      {/* New CustomCard Showcase */}
-      <Paper elevation={3} sx={{ 
-        p: 4, 
-        mb: 4,
-        backgroundColor: 'var(--color-background-paper)',
-        color: 'var(--color-text-primary)'
-      }}>
-        <Typography variant="h4" gutterBottom>
-          🆕 New CustomCard Component
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 3, color: 'var(--theme-text-secondary)' }}>
-          Built from scratch using your exact Figma design specifications and design tokens
-        </Typography>
-        
-        <Grid container spacing={4}>
-          {/* Figma override test example (matches frame 15801:5679) */}
-          <Grid item xs={12} md={4}>
-            <CustomCardNew
-              title="New client"
-              subtitle={"Here’s a description"}
-              content={
-                "When an animal parent has a child, both will belong to the same species. Humans beget humans, combfish beget combfish, and green tinkerbirds beget green tinkerbirds."
-              }
-              usageText="Used by 10+ Members"
-              categories={["Category", "Category", "Category"]}
-              categoryVariants={["filled", "filled", "filled"]}
-              categoryColors={["default", "primary", "secondary"]}
-              showPlaceholder={true}
-              actions={[{ label: "See details", variant: "contained", color: "warning" }]}
-            />
-          </Grid>
-
-          {/* Card with Image */}
-          <Grid item xs={12} md={4}>
-            <CustomCardNew
-              title="Design System Card"
-              subtitle="Built with Figma tokens"
-              content="This card showcases the complete design system with proper typography, spacing, and components. It includes an image header, categories, and action buttons."
-              categories={["Design", "System", "Figma"]}
-              showPlaceholder={true}
-              actions={[
-                { label: "See details", variant: "outlined", color: "primary" }
-              ]}
-            />
-          </Grid>
-          
-          {/* Card with Categories */}
-          <Grid item xs={12} md={4}>
-            <CustomCardNew
-              title="Component Library"
-              subtitle="MUI + Design Tokens"
-              content="Every component follows your exact design specifications. Typography, colors, spacing, and interactions are all consistent with your design system."
-              categories={["Components", "Library", "MUI", "React"]}
-              showPlaceholder={true}
-              actions={[
-                { label: "View docs", variant: "contained", color: "primary" },
-                { label: "Examples", variant: "text", color: "secondary" }
-              ]}
-            />
-          </Grid>
-          
-          {/* Card with Long Content */}
-          <Grid item xs={12} md={4}>
-            <CustomCardNew
-              title="Professional Quality"
-              subtitle="Production Ready"
-              content="Built with attention to detail, this component system provides a solid foundation for your applications. All design tokens are properly implemented."
-              categories={["Production", "Quality", "Professional"]}
-              showPlaceholder={true}
-              actions={[
-                { label: "Get started", variant: "contained", color: "primary" }
-              ]}
-            />
-          </Grid>
-        </Grid>
       </Paper>
 
       {/* All Components Showcase */}
