@@ -13,6 +13,7 @@ export interface SelectProps extends Omit<MuiSelectProps<string>, 'onChange'> {
   label?: string
   options: SelectOption[]
   onChange?: (value: string) => void
+  fullWidth?: boolean
 }
 
 const StyledFormControl = styled(FormControl)(() => ({
@@ -37,6 +38,7 @@ const StyledFormControl = styled(FormControl)(() => ({
     fontSize: 'var(--theme-typography-_fontSize-rem_1, 16px)',
     lineHeight: '24px',
     padding: '12px 16px',
+    paddingRight: '40px', // leave room for dropdown icon
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -45,6 +47,7 @@ const StyledFormControl = styled(FormControl)(() => ({
   // Small size paddings
   '& .MuiInputBase-sizeSmall .MuiSelect-select': {
     padding: '8px 12px',
+    paddingRight: '32px',
   },
   // Dropdown icon color
   '& .MuiSelect-icon': {
@@ -56,7 +59,7 @@ const StyledFormControl = styled(FormControl)(() => ({
   }
 }))
 
-const Select: React.FC<SelectProps> = ({ label, options, value = '', onChange, size = 'small', ...rest }) => {
+const Select: React.FC<SelectProps> = ({ label, options, value = '', onChange, size = 'small', fullWidth = false, sx, ...rest }) => {
   const handleChange = (event: SelectChangeEvent<string>) => {
     onChange?.(event.target.value as string)
   }
@@ -64,7 +67,7 @@ const Select: React.FC<SelectProps> = ({ label, options, value = '', onChange, s
   const selected = options.find((o) => o.value === value)
 
   return (
-    <StyledFormControl fullWidth size={size} variant="outlined">
+    <StyledFormControl fullWidth={fullWidth} size={size} variant="outlined" sx={sx}>
       <MuiSelect
         value={value}
         onChange={handleChange}
