@@ -123,4 +123,45 @@ figma.connect(
   },
 )
 
+// Mapping for Organizations page frame
+figma.connect(
+  LessSimpleCardAdapter,
+  "https://www.figma.com/design/KLNk6eJCBd573J4Qi5oHVs/Accelerant-MUI-DS-test?node-id=15852%3A10141",
+  {
+    props: {
+      elevation: figma.string("elevation"),
+      title: figma.string("title"),
+      subtitle: figma.string("subtitle"),
+      content: figma.string("content"),
+      chip1: figma.string("chip1"),
+      chip2: figma.string("chip2"),
+      chip3: figma.string("chip3"),
+      buttonLabel: figma.string("buttonLabel"),
+      buttonVariant: figma.enum("buttonVariant", { contained: "contained", outlined: "outlined", text: "text" }),
+      buttonColor: figma.enum("buttonColor", {
+        primary: "primary",
+        secondary: "secondary",
+        success: "success",
+        warning: "warning",
+        error: "error",
+        info: "info",
+      }),
+    },
+    example: () => (
+      <LessSimpleCardAdapter
+        elevation={1}
+        title="InsCipher"
+        subtitle="Agent onboarding & compliance"
+        content="Get top-tier PEO services at zero cost..."
+        chip1="Central Functions"
+        chip2="Product & Operations"
+        chip3="Technology"
+        buttonLabel="See details"
+        buttonVariant="contained"
+        buttonColor="primary"
+      />
+    ),
+  },
+)
+
 
