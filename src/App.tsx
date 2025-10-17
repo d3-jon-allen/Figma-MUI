@@ -9,6 +9,7 @@ import {
   Switch,
   Button,
   TextField,
+  Select,
   Autocomplete,
   Card,
   CardHeader,
@@ -335,13 +336,23 @@ function HomePage() {
             </Box>
           </Grid>
 
-          {/* TextFields & Autocomplete */}
+          {/* TextFields, Select & Autocomplete */}
           <Grid item xs={12} md={6} lg={4}>
             <Typography variant="h6" sx={{ mb: 1 }}>Inputs</Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
               <TextField label="Outlined" variant="outlined" size="small" />
               <TextField label="Filled" variant="filled" size="small" />
               <TextField label="Standard" variant="standard" size="small" />
+              <Select
+                label="Status"
+                size="small"
+                value="all"
+                options={[
+                  { label: 'All', value: 'all' },
+                  { label: 'Active', value: 'active' },
+                  { label: 'Inactive', value: 'inactive' },
+                ]}
+              />
               <Autocomplete
                 options={["One", "Two", "Three"]}
                 renderInput={(params) => (

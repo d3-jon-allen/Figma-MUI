@@ -24,51 +24,51 @@
     "type": "number"
   },
   "_fontSize": {
-    "0.625rem": {
+    "rem_0625": {
       "value": 10,
       "type": "number"
     },
-    "0.75rem": {
+    "rem_075": {
       "value": 12,
       "type": "number"
     },
-    "0.8125rem": {
+    "rem_08125": {
       "value": 13,
       "type": "number"
     },
-    "0.875rem": {
+    "rem_0875": {
       "value": 14,
       "type": "number"
     },
-    "0.9375rem": {
+    "rem_09375": {
       "value": 15,
       "type": "number"
     },
-    "1rem": {
+    "rem_1": {
       "value": 16,
       "type": "number"
     },
-    "1.25rem": {
+    "rem_1_25": {
       "value": 20,
       "type": "number"
     },
-    "1.5rem": {
+    "rem_1_5": {
       "value": 24,
       "type": "number"
     },
-    "2.125rem": {
+    "rem_2_125": {
       "value": 34,
       "type": "number"
     },
-    "3rem": {
+    "rem_3": {
       "value": 48,
       "type": "number"
     },
-    "3.75rem": {
+    "rem_3_75": {
       "value": 60,
       "type": "number"
     },
-    "6rem": {
+    "rem_6": {
       "value": 96,
       "type": "number"
     }
