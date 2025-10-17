@@ -25,3 +25,5 @@ export { default as SettingsFilled } from './SettingsFilled';
 export { default as StarSharp } from './StarSharp';
 export { default as UploadFileFilled } from './UploadFileFilled';
 export { default as WarningAmberOutlined } from './WarningAmberOutlined';
+export { default as LightMode } from './LightMode';
+export { default as DarkMode } from './DarkMode';

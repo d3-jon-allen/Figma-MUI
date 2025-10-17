@@ -23,6 +23,7 @@ import {
   AppBar,
   Toolbar
 } from './components/local';
+import { LightMode, DarkMode } from './components/icons';
 // Import all icons from the icons folder
 import * as Icons from './components/icons';
 import CustomCardNew from './components/CustomCardNew';
@@ -81,42 +82,33 @@ function App() {
           backgroundColor: 'var(--theme-page-background)',
           minHeight: '100vh'
         }}>
-          {/* Theme Toggle - Sticky */}
-          <Box sx={{ 
-            position: 'sticky',
-            top: 0,
-            zIndex: 1000,
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center', 
-            gap: 2, 
-            mb: 4,
-            p: 3,
-            backgroundColor: isDarkMode ? 'var(--theme-action-selected)' : 'var(--theme-action-hover)',
-            borderRadius: 2,
-            border: `1px solid ${isDarkMode ? 'var(--theme-action-active)' : 'var(--theme-action-selected)'}`,
-            transition: 'all 0.3s ease-in-out',
-            backdropFilter: 'blur(10px)',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-          }}>
-            <Typography variant="body1" sx={{ fontWeight: 500, color: isDarkMode ? 'var(--theme-text-secondary)' : 'var(--theme-text-primary)' }}>
-              🌙 Light Mode
-            </Typography>
-            <Switch 
-              checked={isDarkMode}
-              onChange={handleThemeToggle}
+          {/* Theme Toggle - Minimal overlay in top-right */}
+          <Box sx={{ position: 'fixed', top: 12, right: 12, zIndex: 1400 }}>
+            <Box
+              onClick={handleThemeToggle}
+              role="button"
+              aria-label="Toggle color mode"
               sx={{
-                '& .MuiSwitch-switchBase.Mui-checked': {
-                  color: 'var(--theme-action-active)',
-                },
-                '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-                  backgroundColor: 'var(--theme-action-active)',
-                },
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 36,
+                height: 36,
+                borderRadius: '9999px',
+                backgroundColor: 'var(--theme-paper-background)',
+                border: '1px solid var(--theme-border)',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.08)',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s ease, border-color 0.2s ease',
+                '&:hover': { backgroundColor: 'var(--theme-action-hover)' }
               }}
-            />
-            <Typography variant="body1" sx={{ fontWeight: 500, color: isDarkMode ? 'var(--theme-text-primary)' : 'var(--theme-text-secondary)' }}>
-              🌟 Dark Mode
-            </Typography>
+            >
+              {isDarkMode ? (
+                <DarkMode width={18} height={18} color={'var(--theme-text-primary)'} />
+              ) : (
+                <LightMode width={18} height={18} color={'var(--theme-text-primary)'} />
+              )}
+            </Box>
           </Box>
 
           {/* Routes */}
