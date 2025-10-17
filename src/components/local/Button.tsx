@@ -2,13 +2,17 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import MuiButton, { ButtonProps as MuiButtonProps } from '@mui/material/Button';
 
-const StyledButton = styled(MuiButton)(() => ({
-  borderRadius: '12px', // Updated to match Figma design
+const StyledButton = styled(MuiButton)(({ ownerState }: any) => ({
+  borderRadius: '12px',
   textTransform: 'none',
-  fontWeight: 'var(--theme-typography-fontWeightMedium)', // 500 - medium weight from tokens
-  fontFamily: 'var(--theme-typography-fontFamily)', // Inter from tokens
-      fontSize: 'var(--theme-typography-_fontSize-0.9375rem)', // 15px from tokens
-  lineHeight: '26px', // Line height from Figma (no token available yet)
+  fontWeight: 'var(--theme-typography-fontWeightMedium)', // 500
+  fontFamily: 'var(--theme-typography-fontFamily)', // Inter
+  // Figma: button/large 15/26, button/medium 14/24, button/small 14/24
+  fontSize:
+    ownerState?.size === 'large'
+      ? 'var(--theme-typography-_fontSize-0.9375rem, 15px)'
+      : 'var(--theme-typography-_fontSize-0.875rem, 14px)',
+  lineHeight: ownerState?.size === 'large' ? '26px' : '24px',
   transition: 'all 0.2s ease-in-out',
   '&.MuiButton-contained': {
     boxShadow: 'none', // Remove shadow as per design

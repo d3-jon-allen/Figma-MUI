@@ -9,10 +9,7 @@ const Organizations: React.FC = () => {
         Organizations
       </Typography>
 
-      <Paper elevation={1} sx={{ p: 3, mb: 3 }}>
-        <Typography variant="h6" sx={{ mb: 2, color: 'var(--theme-text-secondary)' }}>
-          LessSimpleCard — rendered with Figma-like overrides
-        </Typography>
+
         <Box sx={{ display: 'grid', gap: '24px', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' } }}>
           <LessSimpleCard elevation={1}>
             <Box sx={{ mb: 'var(--theme-spacing-md)' }}>
@@ -119,7 +116,7 @@ const Organizations: React.FC = () => {
             <Button variant="contained" color="error" size="large">See details</Button>
           </LessSimpleCard>
         </Box>
-      </Paper>
+
     </Container>
   )
 }
