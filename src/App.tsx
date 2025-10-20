@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import { 
   Container,
   Typography,
@@ -27,10 +28,9 @@ import {
 import { LightMode, DarkMode } from './components/icons';
 // Import all icons from the icons folder
 import * as Icons from './components/icons';
-import CustomCardNew from './components/CustomCardNew';
-import { SimpleCard, LessSimpleCard, CustomCardNewFlat } from './components';
 import SidebarNavigation from './components/SidebarNavigation';
 import SolutionsExchange from './pages/SolutionsExchange';
+import SolutionDetail from './pages/SolutionDetail';
 import Organizations from './pages/Organizations';
 
 // Main App Component with Routing
@@ -70,6 +70,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Box sx={{ display: 'flex', minHeight: '100vh' }}>
         {/* Sidebar Navigation */}
         <SidebarNavigation 
@@ -116,6 +117,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/solutions-exchange" element={<SolutionsExchange />} />
+            <Route path="/solutions-exchange/:id" element={<SolutionDetail />} />
             <Route path="/organizations" element={<Organizations />} />
           </Routes>
         </Box>

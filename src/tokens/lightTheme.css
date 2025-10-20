@@ -73,6 +73,42 @@
   --theme-font-family-inter: 'Inter', sans-serif;
   --theme-font-family-roboto: 'Roboto', sans-serif;
   
+  /* Typography tokens (from Figma) */
+  --theme-typography-h1-fontFamily: var(--theme-font-family-nunito);
+  --theme-typography-h1-fontSize: 32px;
+  --theme-typography-h1-fontWeight: 600; /* SemiBold */
+  --theme-typography-h1-lineHeight: 1.167;
+
+  --theme-typography-h2-fontFamily: var(--theme-font-family-nunito);
+  --theme-typography-h2-fontSize: 24px;
+  --theme-typography-h2-fontWeight: 600; /* SemiBold */
+  --theme-typography-h2-lineHeight: 1.2;
+
+  --theme-typography-h3-fontFamily: var(--theme-font-family-nunito);
+  --theme-typography-h3-fontSize: 24px;
+  --theme-typography-h3-fontWeight: 400; /* Regular */
+  --theme-typography-h3-lineHeight: 1.167;
+
+  --theme-typography-h6-fontFamily: var(--theme-font-family-nunito);
+  --theme-typography-h6-fontSize: 20px;
+  --theme-typography-h6-fontWeight: 700; /* Bold */
+  --theme-typography-h6-lineHeight: 1.6;
+
+  --theme-typography-body1-fontFamily: var(--theme-font-family-inter);
+  --theme-typography-body1-fontSize: 16px;
+  --theme-typography-body1-fontWeight: 400; /* Regular */
+  --theme-typography-body1-lineHeight: 1.5;
+
+  --theme-typography-body2-fontFamily: var(--theme-font-family-inter);
+  --theme-typography-body2-fontSize: 14px;
+  --theme-typography-body2-fontWeight: 400; /* Regular */
+  --theme-typography-body2-lineHeight: 1.43;
+
+  --theme-typography-button-fontFamily: var(--theme-font-family-inter);
+  --theme-typography-button-fontSize: 15px;
+  --theme-typography-button-fontWeight: 500; /* Medium */
+  --theme-typography-button-lineHeight: 24px;
+  
   /* Additional color aliases for backward compatibility */
   --color-action-active: var(--theme-action-active);
   --color-text-primary: var(--theme-text-primary);
