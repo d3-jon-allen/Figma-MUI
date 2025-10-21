@@ -5,14 +5,13 @@ import MuiButton, { ButtonProps as MuiButtonProps } from '@mui/material/Button';
 const StyledButton = styled(MuiButton)(({ ownerState }: any) => ({
   borderRadius: '12px',
   textTransform: 'none',
-  fontWeight: 'var(--theme-typography-fontWeightMedium)', // 500
-  fontFamily: 'var(--theme-typography-fontFamily)', // Inter
-  // Figma: button/large 15/26, button/medium 14/24, button/small 14/24
+  fontFamily: 'var(--theme-typography-button-fontFamily)',
+  fontWeight: 'var(--theme-typography-button-fontWeight)',
   fontSize:
     ownerState?.size === 'large'
-      ? 'var(--theme-typography-_fontSize-rem_09375, 15px)'
-      : 'var(--theme-typography-_fontSize-rem_0875, 14px)',
-  lineHeight: ownerState?.size === 'large' ? '26px' : '24px',
+      ? 'var(--theme-typography-button-fontSize)'
+      : '14px',
+  lineHeight: ownerState?.size === 'large' ? 'var(--theme-typography-button-lineHeight)' : '24px',
   transition: 'all 0.2s ease-in-out',
   '&.MuiButton-contained': {
     boxShadow: 'none', // Remove shadow as per design

@@ -33,7 +33,7 @@ function loadTokens(filePath) {
 }
 
 /**
- * Resolve token references using actual values from Mode 1.json
+ * Resolve token references using actual values from primitives.json
  * e.g., {blue.400} -> #2c49ef
  */
 function resolveTokenReferences(value, mode1Tokens) {
@@ -94,13 +94,13 @@ function processTokens(tokens, mode1Tokens) {
 function mergeTokens() {
   console.log('🔄 Merging design tokens...\n');
   
-  // Load the Mode 1.json core color tokens
-  const mode1Tokens = loadTokens(path.join(TOKENS_DIR, 'Mode 1.json'));
+  // Load the primitives.json core color tokens
+  const mode1Tokens = loadTokens(path.join(TOKENS_DIR, 'primitives.json'));
   if (!mode1Tokens) {
-    console.error('❌ Failed to load Mode 1.json');
+    console.error('❌ Failed to load primitives.json');
     return;
   }
-  console.log('✅ Mode 1.json loaded with core color values');
+  console.log('✅ primitives.json loaded with core color values');
   
   // Load the Light.json color tokens
   const lightTokens = loadTokens(path.join(TOKENS_DIR, 'Light.json'));
@@ -110,6 +110,14 @@ function mergeTokens() {
   }
   console.log('✅ Light.json loaded with color aliases');
   
+  // Load the Dark.json color tokens
+  const darkTokens = loadTokens(path.join(TOKENS_DIR, 'Dark.json'));
+  if (!darkTokens) {
+    console.error('❌ Failed to load Dark.json');
+    return;
+  }
+  console.log('✅ Dark.json loaded with color aliases');
+  
   // Load the Figma-extracted tokens
   const figmaTokens = loadTokens(path.join(TOKENS_DIR, 'figmaTokens.json'));
   if (!figmaTokens) {
@@ -118,9 +126,11 @@ function mergeTokens() {
   }
   console.log('✅ figmaTokens.json loaded with Figma-extracted values');
   
-  // Process and resolve references in Light.json using Mode 1.json values
-  console.log('🔄 Processing Light.json tokens with Mode 1.json values...');
+  // Process and resolve references in Light.json and Dark.json using primitives.json values
+  console.log('🔄 Processing Light.json tokens with primitives.json values...');
   const processedLightTokens = processTokens(lightTokens, mode1Tokens);
+  console.log('🔄 Processing Dark.json tokens with primitives.json values...');
+  const processedDarkTokens = processTokens(darkTokens, mode1Tokens);
   
   // Create merged token structure
   const mergedTokens = {
@@ -183,7 +193,8 @@ function mergeTokens() {
         disabled: processedLightTokens.action?.disabled?.value || '#00000061',
         focus: processedLightTokens.action?.focus?.value || '#0000001f',
         disabledBackground: processedLightTokens.action?.disabledBackground?.value || '#0000001f'
-      }
+      },
+      divider: processedLightTokens.divider?.value || '#0000001f'
     },
     // Use Figma-extracted typography
     typography: figmaTokens.typography || {},
@@ -199,9 +210,127 @@ function mergeTokens() {
       lg: 24,
       xl: 32
     },
+    modes: {
+      light: {
+        colors: {
+          primary: {
+            main: processedLightTokens.primary?.main?.value || '#1976d2',
+            light: processedLightTokens.primary?.light?.value || '#42a5f5',
+            dark: processedLightTokens.primary?.dark?.value || '#1565c0',
+            contrastText: processedLightTokens.primary?.contrastText?.value || '#ffffff'
+          },
+          secondary: {
+            main: processedLightTokens.secondary?.main?.value || '#dc004e',
+            light: processedLightTokens.secondary?.light?.value || '#ff5983',
+            dark: processedLightTokens.secondary?.dark?.value || '#9a0036',
+            contrastText: processedLightTokens.secondary?.contrastText?.value || '#ffffff'
+          },
+          success: {
+            main: processedLightTokens.success?.main?.value || '#2e7d32',
+            light: processedLightTokens.success?.light?.value || '#4caf50',
+            dark: processedLightTokens.success?.dark?.value || '#1b5e20',
+            contrastText: processedLightTokens.success?.contrastText?.value || '#ffffff'
+          },
+          error: {
+            main: processedLightTokens.error?.main?.value || '#d32f2f',
+            light: processedLightTokens.error?.light?.value || '#ef5350',
+            dark: processedLightTokens.error?.dark?.value || '#c62828',
+            contrastText: processedLightTokens.error?.contrastText?.value || '#ffffff'
+          },
+          warning: {
+            main: processedLightTokens.warning?.main?.value || '#ed6c02',
+            light: processedLightTokens.warning?.light?.value || '#ff9800',
+            dark: processedLightTokens.warning?.dark?.value || '#e65100',
+            contrastText: processedLightTokens.warning?.contrastText?.value || '#ffffff'
+          },
+          info: {
+            main: processedLightTokens.info?.main?.value || '#0288d1',
+            light: processedLightTokens.info?.light?.value || '#03a9f4',
+            dark: processedLightTokens.info?.dark?.value || '#01579b',
+            contrastText: processedLightTokens.info?.contrastText?.value || '#ffffff'
+          }
+        },
+        text: {
+          primary: processedLightTokens.text?.primary?.value || '#000000de',
+          secondary: processedLightTokens.text?.secondary?.value || '#00000099',
+          disabled: processedLightTokens.text?.disabled?.value || '#00000061'
+        },
+        background: {
+          default: processedLightTokens.background?.default?.value || '#ffffff',
+          paper: processedLightTokens.background?.['paper-elevation-0']?.value || '#ffffff'
+        },
+        action: {
+          active: processedLightTokens.action?.active?.value || '#0000008f',
+          hover: processedLightTokens.action?.hover?.value || '#0000000a',
+          selected: processedLightTokens.action?.selected?.value || '#00000014',
+          disabled: processedLightTokens.action?.disabled?.value || '#00000061',
+          focus: processedLightTokens.action?.focus?.value || '#0000001f',
+          disabledBackground: processedLightTokens.action?.disabledBackground?.value || '#0000001f'
+        },
+        divider: processedLightTokens.divider?.value || '#0000001f'
+      },
+      dark: {
+        colors: {
+          primary: {
+            main: processedDarkTokens.primary?.main?.value || '#90caf9',
+            light: processedDarkTokens.primary?.light?.value || '#e3f2fd',
+            dark: processedDarkTokens.primary?.dark?.value || '#1565c0',
+            contrastText: processedDarkTokens.primary?.contrastText?.value || '#000000de'
+          },
+          secondary: {
+            main: processedDarkTokens.secondary?.main?.value || '#d5fbff',
+            light: processedDarkTokens.secondary?.light?.value || '#f0feff',
+            dark: processedDarkTokens.secondary?.dark?.value || '#76efff',
+            contrastText: processedDarkTokens.secondary?.contrastText?.value || '#000000de'
+          },
+          success: {
+            main: processedDarkTokens.success?.main?.value || '#66bb6a',
+            light: processedDarkTokens.success?.light?.value || '#c8e6c9',
+            dark: processedDarkTokens.success?.dark?.value || '#388e3c',
+            contrastText: processedDarkTokens.success?.contrastText?.value || '#000000de'
+          },
+          error: {
+            main: processedDarkTokens.error?.main?.value || '#f44336',
+            light: processedDarkTokens.error?.light?.value || '#ffcdd2',
+            dark: processedDarkTokens.error?.dark?.value || '#d32f2f',
+            contrastText: processedDarkTokens.error?.contrastText?.value || '#ffffff'
+          },
+          warning: {
+            main: processedDarkTokens.warning?.main?.value || '#ffa726',
+            light: processedDarkTokens.warning?.light?.value || '#ffe0b2',
+            dark: processedDarkTokens.warning?.dark?.value || '#f57c00',
+            contrastText: processedDarkTokens.warning?.contrastText?.value || '#000000de'
+          },
+          info: {
+            main: processedDarkTokens.info?.main?.value || '#29b6f6',
+            light: processedDarkTokens.info?.light?.value || '#b3e5fc',
+            dark: processedDarkTokens.info?.dark?.value || '#0288d1',
+            contrastText: processedDarkTokens.info?.contrastText?.value || '#000000de'
+          }
+        },
+        text: {
+          primary: processedDarkTokens.text?.primary?.value || '#ffffffde',
+          secondary: processedDarkTokens.text?.secondary?.value || '#ffffffb3',
+          disabled: processedDarkTokens.text?.disabled?.value || '#ffffff61'
+        },
+        background: {
+          default: processedDarkTokens.background?.default?.value || '#121212',
+          paper: processedDarkTokens.background?.['paper-elevation-4']?.value || '#1e1e1e'
+        },
+        action: {
+          active: processedDarkTokens.action?.active?.value || '#ffffff8f',
+          hover: processedDarkTokens.action?.hover?.value || '#ffffff14',
+          selected: processedDarkTokens.action?.selected?.value || '#ffffff29',
+          disabled: processedDarkTokens.action?.disabled?.value || '#ffffff61',
+          focus: processedDarkTokens.action?.focus?.value || '#ffffff1f',
+          disabledBackground: processedDarkTokens.action?.disabledBackground?.value || '#ffffff1f'
+        },
+        divider: processedDarkTokens.divider?.value || '#ffffff1f'
+      }
+    },
     metadata: {
       mergedAt: new Date().toISOString(),
-      sources: ['Mode 1.json', 'Light.json', 'figmaTokens.json'],
+      sources: ['primitives.json', 'Light.json', 'Dark.json', 'figmaTokens.json'],
       version: '1.0.0'
     }
   };
@@ -224,7 +353,7 @@ function mergeTokens() {
   console.log('   1. The merged tokens are ready to use');
   console.log('   2. Your Figma token sync will use these tokens');
   console.log('   3. Components will automatically use the new color scheme');
-  console.log('\n🎨 Color values resolved from Mode 1.json:');
+console.log('\n🎨 Color values resolved from primitives.json:');
   console.log(`   Primary: ${mergedTokens.colors.primary.main}`);
   console.log(`   Secondary: ${mergedTokens.colors.secondary.main}`);
   console.log(`   Success: ${mergedTokens.colors.success.main}`);

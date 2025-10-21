@@ -1,7 +1,5 @@
 /* Import Design System Tokens */
-@import './tokens/componentStyles.css';
-@import './tokens/lightTheme.css';
-@import './tokens/darkTheme.css';
+@import './tokens/theme.css';
 
 /* Basic CSS reset and styles */
 * {

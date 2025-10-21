@@ -1,8 +1,0 @@
-{
-  "default": {
-    "value": 24,
-    "type": "borderRadius",
-    "description": "Border radius from Item #1",
-    "figmaId": "I15657:91745;11501:188121;11480:166213;11565:156939"
-  }
-}

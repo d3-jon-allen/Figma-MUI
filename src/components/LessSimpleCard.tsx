@@ -16,6 +16,7 @@ export interface LessSimpleCardProps {
   buttonLabel?: string
   buttonVariant?: 'contained' | 'outlined' | 'text'
   buttonColor?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info'
+  onButtonClick?: () => void
 }
 
 const LessSimpleCard: React.FC<LessSimpleCardProps> = ({
@@ -32,6 +33,7 @@ const LessSimpleCard: React.FC<LessSimpleCardProps> = ({
   buttonLabel = 'See details',
   buttonVariant = 'outlined',
   buttonColor = 'primary',
+  onButtonClick,
 }) => {
   const computedChips: string[] = (chips && chips.length > 0)
     ? chips
@@ -97,7 +99,7 @@ const LessSimpleCard: React.FC<LessSimpleCardProps> = ({
 
             {buttonLabel && (
               <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 'auto' }}>
-                <Button variant={buttonVariant} color={buttonColor} size="large">
+                <Button variant={buttonVariant} color={buttonColor} size="large" onClick={onButtonClick}>
                   {buttonLabel}
                 </Button>
               </Box>
