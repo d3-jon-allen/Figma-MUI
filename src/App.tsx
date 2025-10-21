@@ -140,7 +140,7 @@ function HomePage() {
           🎨 Complete MUI Design System
         </Typography>
         <Typography variant="h5" gutterBottom sx={{ color: 'var(--theme-text-secondary)' }}>
-          Powered by Figma Design Tokens + Light.json + Mode 1.json
+          Powered by Figma Design Tokens + Light.json + primitives.json
         </Typography>
         <Typography variant="body1" sx={{ color: 'var(--theme-text-secondary)' }}>
           Every component using your merged design tokens automatically!
