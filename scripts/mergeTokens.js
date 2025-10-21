@@ -17,6 +17,7 @@ const __dirname = path.dirname(__filename);
 
 // Configuration
 const TOKENS_DIR = path.join(__dirname, '..', 'src', 'tokens');
+const RAW_DIR = path.join(TOKENS_DIR, 'raw');
 const OUTPUT_FILE = path.join(TOKENS_DIR, 'mergedTokens.json');
 
 /**
@@ -95,7 +96,7 @@ function mergeTokens() {
   console.log('🔄 Merging design tokens...\n');
   
   // Load the primitives.json core color tokens
-  const mode1Tokens = loadTokens(path.join(TOKENS_DIR, 'primitives.json'));
+  const mode1Tokens = loadTokens(path.join(RAW_DIR, 'primitives.json'));
   if (!mode1Tokens) {
     console.error('❌ Failed to load primitives.json');
     return;
@@ -103,7 +104,7 @@ function mergeTokens() {
   console.log('✅ primitives.json loaded with core color values');
   
   // Load the Light.json color tokens
-  const lightTokens = loadTokens(path.join(TOKENS_DIR, 'Light.json'));
+  const lightTokens = loadTokens(path.join(RAW_DIR, 'Light.json'));
   if (!lightTokens) {
     console.error('❌ Failed to load Light.json');
     return;
@@ -111,7 +112,7 @@ function mergeTokens() {
   console.log('✅ Light.json loaded with color aliases');
   
   // Load the Dark.json color tokens
-  const darkTokens = loadTokens(path.join(TOKENS_DIR, 'Dark.json'));
+  const darkTokens = loadTokens(path.join(RAW_DIR, 'Dark.json'));
   if (!darkTokens) {
     console.error('❌ Failed to load Dark.json');
     return;
@@ -119,7 +120,7 @@ function mergeTokens() {
   console.log('✅ Dark.json loaded with color aliases');
   
   // Load the Figma-extracted tokens
-  const figmaTokens = loadTokens(path.join(TOKENS_DIR, 'figmaTokens.json'));
+  const figmaTokens = loadTokens(path.join(RAW_DIR, 'figmaTokens.json'));
   if (!figmaTokens) {
     console.error('❌ Failed to load figmaTokens.json');
     return;
