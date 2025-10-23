@@ -1,7 +1,13 @@
 // Auto-generated MUI theme from merged design tokens
 import { createTheme, ThemeOptions } from '@mui/material/styles';
 
+const spacingFn = (...args: Array<number | string>) => {
+  const toPx = (v: number | string) => `${Number(v) * 8}px`;
+  return args.map(toPx).join(' ');
+};
+
 export const muiThemeOptions: ThemeOptions = {
+  spacing: spacingFn,
   palette: {
     primary: {
       main: '#2c49ef',
