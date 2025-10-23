@@ -1,4 +1,4 @@
-/* Auto-generated from tokens-raw-export.json. Do not edit manually. */
+/* Auto-generated from Tokens Studio (src/tokens/mui-tokens). Do not edit manually. */
 
 :root {
   --palette-light-text-primary: #000000de;
@@ -120,6 +120,7 @@
   --palette-light-_components-chip-defaulthoverfill: #0000001f;
   --palette-light-_components-chip-defaultenabledborder: #bdbdbd;
   --palette-light-_components-chip-defaultfocusfill: #00000033;
+  --palette-light-_components-chip-defaultfill: #0000001a;
   --palette-light-_components-tooltip-fill: #616161e6;
   --palette-light-_components-backdrop-fill: #00000080;
   --palette-light-_components-appbar-defaultfill: #f5f5f5;
@@ -158,6 +159,7 @@
   --theme-spacing-xl: var(--spacing-global-4);
   --theme-spacing-xxl: var(--spacing-global-6);
   --shape-global-borderradius: 12px;
+  --shape-global-none: 0px;
   --theme-border-radius-default: var(--shape-global-borderradius);
   --theme-page-background: var(--palette-light-background-default);
   --theme-paper-background: var(--palette-light-background-paper-elevation-0);
@@ -197,6 +199,11 @@
   --theme-info-contrastText: var(--palette-light-info-contrasttext);
   --theme-divider: var(--palette-light-divider);
   --theme-border: var(--palette-light-divider);
+  --chip-default-fill: var(--palette-light-_components-chip-defaultfill);
+  --chip-default-hover-fill: var(--palette-light-_components-chip-defaulthoverfill);
+  --chip-default-focus-fill: var(--palette-light-_components-chip-defaultfocusfill);
+  --chip-default-enabled-border: var(--palette-light-_components-chip-defaultenabledborder);
+  --chip-default-close-fill: var(--palette-light-_components-chip-defaultclosefill);
   --theme-font-family-inter: 'Inter', sans-serif;
   --theme-font-family-nunito: 'Nunito', sans-serif;
   --theme-font-family-roboto: 'Roboto', sans-serif;
@@ -346,6 +353,7 @@
   --palette-dark-_components-chip-defaulthoverfill: #ffffff1f;
   --palette-dark-_components-chip-defaultenabledborder: #616161;
   --palette-dark-_components-chip-defaultfocusfill: #ffffff33;
+  --palette-dark-_components-chip-defaultfill: #ffffff33;
   --palette-dark-_components-tooltip-fill: #616161e6;
   --palette-dark-_components-backdrop-fill: #00000080;
   --palette-dark-_components-appbar-defaultfill: #272727;
@@ -400,6 +408,11 @@
   --theme-info-contrastText: var(--palette-dark-info-contrasttext);
   --theme-divider: var(--palette-dark-divider);
   --theme-border: var(--palette-dark-divider);
+  --chip-default-fill: var(--palette-dark-_components-chip-defaultfill);
+  --chip-default-hover-fill: var(--palette-dark-_components-chip-defaulthoverfill);
+  --chip-default-focus-fill: var(--palette-dark-_components-chip-defaultfocusfill);
+  --chip-default-enabled-border: var(--palette-dark-_components-chip-defaultenabledborder);
+  --chip-default-close-fill: var(--palette-dark-_components-chip-defaultclosefill);
   --theme-font-family-inter: 'Inter', sans-serif;
   --theme-font-family-nunito: 'Nunito', sans-serif;
   --theme-font-family-roboto: 'Roboto', sans-serif;
