@@ -14,8 +14,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const TOKENS_DIR = path.join(__dirname, '..', 'src', 'tokens');
-const MERGED_PATH = path.join(TOKENS_DIR, 'mergedTokens.json');
-const RAW_PATH = path.join(TOKENS_DIR, 'raw', 'tokens-raw-export.json');
+const MUI_TOKENS_DIR = path.join(TOKENS_DIR, 'mui-tokens');
 const OUTPUT_PATH = path.join(TOKENS_DIR, 'theme.css');
 
 // flatten a nested token object (taking only .value leaves) to path -> raw value
@@ -104,6 +103,10 @@ function emitMode(selector, modeKey, raw) {
   lines.push(`  --theme-page-background: var(${ns}background-default);`);
   lines.push(`  --theme-paper-background: var(${ns}background-paper-elevation-0);`);
   lines.push(`  --theme-secondary-background: var(${ns}background-secondary, ${mode === 'light' ? '#fcfcfd' : '#2d2d2d'});`);
+  // elevation-aware paper background aliases (0-24)
+  for (let i = 0; i <= 24; i++) {
+    lines.push(`  --theme-paper-background-elevation-${i}: var(${ns}background-paper-elevation-${i});`);
+  }
   lines.push(`  --theme-text-primary: var(${ns}text-primary);`);
   lines.push(`  --theme-text-secondary: var(${ns}text-secondary);`);
   lines.push(`  --theme-text-disabled: var(${ns}text-disabled);`);
@@ -140,6 +143,13 @@ function emitMode(selector, modeKey, raw) {
   lines.push(`  --theme-divider: var(${ns}divider);`);
   // convenient alias for outlines used in examples
   lines.push(`  --theme-border: var(${ns}divider);`);
+
+  // component-specific aliases: Chip (map to design tokens)
+  lines.push(`  --chip-default-fill: var(${ns}_components-chip-defaultfill);`);
+  lines.push(`  --chip-default-hover-fill: var(${ns}_components-chip-defaulthoverfill);`);
+  lines.push(`  --chip-default-focus-fill: var(${ns}_components-chip-defaultfocusfill);`);
+  lines.push(`  --chip-default-enabled-border: var(${ns}_components-chip-defaultenabledborder);`);
+  lines.push(`  --chip-default-close-fill: var(${ns}_components-chip-defaultclosefill);`);
 
   // typography aliases (mode-independent, but emitted per block for simplicity)
   lines.push(`  --theme-font-family-inter: 'Inter', sans-serif;`);
@@ -222,15 +232,36 @@ div[class*="MuiPaper-root"] { background-color: var(--theme-paper-background); c
 `;
 }
 
+function loadJson(filePath) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch (e) {
+    return null;
+  }
+}
+
 function main() {
-  if (!fs.existsSync(RAW_PATH)) {
-    console.error('❌ tokens-raw-export.json not found. Please add it to src/tokens/raw/');
+  if (!fs.existsSync(MUI_TOKENS_DIR)) {
+    console.error('❌ Tokens Studio directory not found at src/tokens/mui-tokens');
     process.exit(1);
   }
-  const raw = JSON.parse(fs.readFileSync(RAW_PATH, 'utf8'));
+
+  // Compose a raw-like structure from Tokens Studio files
+  const raw = {};
+  const paletteLight = loadJson(path.join(MUI_TOKENS_DIR, 'palette', 'Light.json')) || {};
+  const paletteDark = loadJson(path.join(MUI_TOKENS_DIR, 'palette', 'Dark.json')) || {};
+  const spacingGlobal = loadJson(path.join(MUI_TOKENS_DIR, 'spacing', 'Global.json')) || {};
+  const shapeGlobal = loadJson(path.join(MUI_TOKENS_DIR, 'shape', 'Global.json')) || {};
+  const primitives = loadJson(path.join(MUI_TOKENS_DIR, 'material', 'colors', 'Primitives.json')) || {};
+
+  raw['palette/Light'] = paletteLight;
+  raw['palette/Dark'] = paletteDark;
+  raw['spacing/Global'] = spacingGlobal;
+  raw['shape/Global'] = shapeGlobal;
+  raw['material/colors/Primitives'] = primitives;
 
   const parts = [];
-  parts.push('/* Auto-generated from tokens-raw-export.json. Do not edit manually. */');
+  parts.push('/* Auto-generated from Tokens Studio (src/tokens/mui-tokens). Do not edit manually. */');
   parts.push('');
   parts.push(emitMode(':root', 'Light', raw));
   parts.push('');

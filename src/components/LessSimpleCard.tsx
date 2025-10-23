@@ -31,13 +31,15 @@ const LessSimpleCard: React.FC<LessSimpleCardProps> = ({
   chip2,
   chip3,
   buttonLabel = 'See details',
-  buttonVariant = 'outlined',
+  buttonVariant = 'contained',
   buttonColor = 'primary',
   onButtonClick,
 }) => {
   const computedChips: string[] = (chips && chips.length > 0)
     ? chips
     : ([chip1, chip2, chip3].filter(Boolean) as string[])
+
+  const paperBg = `var(--theme-paper-background-elevation-${elevation}, var(--theme-paper-background))`
 
   return (
     <Paper
@@ -51,7 +53,7 @@ const LessSimpleCard: React.FC<LessSimpleCardProps> = ({
         width: '100%',
         height: '100%',
         minHeight: '338px',
-        backgroundColor: 'var(--theme-paper-background)',
+        backgroundColor: paperBg,
         borderRadius: 'var(--theme-border-radius-default)',
       }}
     >
@@ -70,11 +72,6 @@ const LessSimpleCard: React.FC<LessSimpleCardProps> = ({
               <Typography
                 variant="body1"
                 sx={{
-                  fontFamily: 'var(--theme-font-family-inter)',
-                  fontSize: '16px',
-                  fontWeight: 400,
-                  lineHeight: 1.5,
-                  color: 'var(--theme-text-primary)',
                   mb: (computedChips.length > 0 || !!buttonLabel) ? 'var(--theme-spacing-md)' : 0,
                 }}
               >

@@ -7,12 +7,12 @@ const StyledChip = styled(MuiChip)(({ theme }) => ({
   borderRadius: 'var(--theme-spacing-xl)',
   fontWeight: 500,
   transition: 'all 0.2s ease-in-out',
-  backgroundColor: 'var(--theme-chip-background)',
-  color: 'var(--theme-chip-text)',
+  backgroundColor: 'var(--chip-default-fill)',
+  color: 'var(--theme-text-primary)',
   '&:hover': {
     transform: 'translateY(-2px)',
     boxShadow: theme.shadows[4],
-    backgroundColor: 'var(--theme-action-hover)',
+    backgroundColor: 'var(--chip-default-hover-fill)',
   },
   '&.MuiChip-clickable': {
     cursor: 'pointer',
@@ -23,7 +23,7 @@ const StyledChip = styled(MuiChip)(({ theme }) => ({
   '&.MuiChip-deletable': {
     '& .MuiChip-deleteIcon': {
       transition: 'all 0.2s ease-in-out',
-      color: 'var(--theme-text-secondary)',
+      color: 'var(--chip-default-close-fill)',
       '&:hover': {
         color: 'var(--theme-error-main)',
         transform: 'scale(1.2)',
@@ -32,10 +32,10 @@ const StyledChip = styled(MuiChip)(({ theme }) => ({
   },
   '&.MuiChip-outlined': {
     borderWidth: 2,
-    borderColor: 'var(--theme-border)',
+    borderColor: 'var(--chip-default-enabled-border)',
     '&:hover': {
       borderWidth: 2,
-      borderColor: 'var(--theme-primary-main)',
+      borderColor: 'var(--chip-default-enabled-border)',
     },
   },
   '&.MuiChip-colorPrimary': {
