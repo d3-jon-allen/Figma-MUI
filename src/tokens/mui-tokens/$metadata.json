@@ -1,0 +1,13 @@
+{
+  "tokenSetOrder": [
+    "palette/Light",
+    "palette/Dark",
+    "material/colors/Primitives",
+    "typography/Desktop",
+    "typography/Mobile",
+    "metadata/Global",
+    "breakpoints/Global",
+    "spacing/Global",
+    "shape/Global"
+  ]
+}
