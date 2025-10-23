@@ -492,40 +492,39 @@
   --theme-typography-body2-lineHeight: 1.43;
 }
 
-
 /* Component Styles - Using aliases that reference theme-specific values */
 
-.MuiPaper-root,
-.MuiPaper-root.MuiPaper-elevation1,
-.MuiPaper-root.MuiPaper-elevation2,
-.MuiPaper-root.MuiPaper-elevation3,
-.MuiPaper-root.MuiPaper-elevation4,
-.MuiPaper-root.MuiPaper-elevation5,
-.MuiPaper-root.MuiPaper-elevation6,
-.MuiPaper-root.MuiPaper-elevation7,
-.MuiPaper-root.MuiPaper-elevation8,
-.MuiPaper-root.MuiPaper-elevation9,
-.MuiPaper-root.MuiPaper-elevation10,
-.MuiPaper-root.MuiPaper-elevation11,
-.MuiPaper-root.MuiPaper-elevation12,
-.MuiPaper-root.MuiPaper-elevation13,
-.MuiPaper-root.MuiPaper-elevation14,
-.MuiPaper-root.MuiPaper-elevation15,
-.MuiPaper-root.MuiPaper-elevation16,
-.MuiPaper-root.MuiPaper-elevation17,
-.MuiPaper-root.MuiPaper-elevation18,
-.MuiPaper-root.MuiPaper-elevation19,
-.MuiPaper-root.MuiPaper-elevation20,
-.MuiPaper-root.MuiPaper-elevation21,
-.MuiPaper-root.MuiPaper-elevation22,
-.MuiPaper-root.MuiPaper-elevation23,
-.MuiPaper-root.MuiPaper-elevation24 {
-  background-color: var(--theme-paper-background);
+.MuiPaper-root {
+  background-color: var(--theme-paper-background-elevation-0, var(--theme-paper-background));
   color: var(--theme-text-primary);
 }
+.MuiPaper-root.MuiPaper-elevation1 { background-color: var(--theme-paper-background-elevation-1, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation2 { background-color: var(--theme-paper-background-elevation-2, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation3 { background-color: var(--theme-paper-background-elevation-3, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation4 { background-color: var(--theme-paper-background-elevation-4, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation5 { background-color: var(--theme-paper-background-elevation-5, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation6 { background-color: var(--theme-paper-background-elevation-6, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation7 { background-color: var(--theme-paper-background-elevation-7, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation8 { background-color: var(--theme-paper-background-elevation-8, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation9 { background-color: var(--theme-paper-background-elevation-9, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation10 { background-color: var(--theme-paper-background-elevation-10, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation11 { background-color: var(--theme-paper-background-elevation-11, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation12 { background-color: var(--theme-paper-background-elevation-12, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation13 { background-color: var(--theme-paper-background-elevation-13, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation14 { background-color: var(--theme-paper-background-elevation-14, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation15 { background-color: var(--theme-paper-background-elevation-15, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation16 { background-color: var(--theme-paper-background-elevation-16, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation17 { background-color: var(--theme-paper-background-elevation-17, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation18 { background-color: var(--theme-paper-background-elevation-18, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation19 { background-color: var(--theme-paper-background-elevation-19, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation20 { background-color: var(--theme-paper-background-elevation-20, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation21 { background-color: var(--theme-paper-background-elevation-21, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation22 { background-color: var(--theme-paper-background-elevation-22, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation23 { background-color: var(--theme-paper-background-elevation-23, var(--theme-paper-background)); }
+.MuiPaper-root.MuiPaper-elevation24 { background-color: var(--theme-paper-background-elevation-24, var(--theme-paper-background)); }
 
 .MuiContainer-root { background-color: var(--theme-page-background); }
 .MuiTypography-root { color: inherit; }
 body { background-color: var(--theme-page-background); color: var(--theme-text-primary); }
 * { transition: background-color 0.3s ease, color 0.3s ease; }
-div[class*="MuiPaper-root"] { background-color: var(--theme-paper-background); color: var(--theme-text-primary); }
+div[class*="MuiPaper-root"] { color: var(--theme-text-primary); }

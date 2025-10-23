@@ -192,44 +192,25 @@ function emitMode(selector, modeKey, raw) {
 }
 
 function buildComponentMappings() {
-  return `
-/* Component Styles - Using aliases that reference theme-specific values */
-
-.MuiPaper-root,
-.MuiPaper-root.MuiPaper-elevation1,
-.MuiPaper-root.MuiPaper-elevation2,
-.MuiPaper-root.MuiPaper-elevation3,
-.MuiPaper-root.MuiPaper-elevation4,
-.MuiPaper-root.MuiPaper-elevation5,
-.MuiPaper-root.MuiPaper-elevation6,
-.MuiPaper-root.MuiPaper-elevation7,
-.MuiPaper-root.MuiPaper-elevation8,
-.MuiPaper-root.MuiPaper-elevation9,
-.MuiPaper-root.MuiPaper-elevation10,
-.MuiPaper-root.MuiPaper-elevation11,
-.MuiPaper-root.MuiPaper-elevation12,
-.MuiPaper-root.MuiPaper-elevation13,
-.MuiPaper-root.MuiPaper-elevation14,
-.MuiPaper-root.MuiPaper-elevation15,
-.MuiPaper-root.MuiPaper-elevation16,
-.MuiPaper-root.MuiPaper-elevation17,
-.MuiPaper-root.MuiPaper-elevation18,
-.MuiPaper-root.MuiPaper-elevation19,
-.MuiPaper-root.MuiPaper-elevation20,
-.MuiPaper-root.MuiPaper-elevation21,
-.MuiPaper-root.MuiPaper-elevation22,
-.MuiPaper-root.MuiPaper-elevation23,
-.MuiPaper-root.MuiPaper-elevation24 {
-  background-color: var(--theme-paper-background);
-  color: var(--theme-text-primary);
-}
-
-.MuiContainer-root { background-color: var(--theme-page-background); }
-.MuiTypography-root { color: inherit; }
-body { background-color: var(--theme-page-background); color: var(--theme-text-primary); }
-* { transition: background-color 0.3s ease, color 0.3s ease; }
-div[class*="MuiPaper-root"] { background-color: var(--theme-paper-background); color: var(--theme-text-primary); }
-`;
+  const parts = [];
+  parts.push(`/* Component Styles - Using aliases that reference theme-specific values */`);
+  parts.push('');
+  // Base Paper uses elevation-0 alias by default
+  parts.push(`.MuiPaper-root {`);
+  parts.push(`  background-color: var(--theme-paper-background-elevation-0, var(--theme-paper-background));`);
+  parts.push(`  color: var(--theme-text-primary);`);
+  parts.push(`}`);
+  // Elevation-specific backgrounds
+  for (let i = 1; i <= 24; i++) {
+    parts.push(`.MuiPaper-root.MuiPaper-elevation${i} { background-color: var(--theme-paper-background-elevation-${i}, var(--theme-paper-background)); }`);
+  }
+  parts.push('');
+  parts.push(`.MuiContainer-root { background-color: var(--theme-page-background); }`);
+  parts.push(`.MuiTypography-root { color: inherit; }`);
+  parts.push(`body { background-color: var(--theme-page-background); color: var(--theme-text-primary); }`);
+  parts.push(`* { transition: background-color 0.3s ease, color 0.3s ease; }`);
+  parts.push(`div[class*="MuiPaper-root"] { color: var(--theme-text-primary); }`);
+  return parts.join('\n');
 }
 
 function loadJson(filePath) {

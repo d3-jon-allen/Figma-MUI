@@ -7,8 +7,6 @@ export interface PaperProps extends MuiPaperProps {
 }
 
 const StyledPaper = styled(MuiPaper)(() => ({
-  backgroundColor: 'var(--theme-paper-background)',
-  color: 'var(--theme-text-primary)',
 }));
 
 const Paper: React.FC<PaperProps> = ({ children, ...props }) => {
