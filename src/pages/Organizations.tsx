@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Box, Typography, Paper, CardHeader, Chip, Button } from '../components/local'
+import { Container, Box, Typography, CardHeader, Chip, Button } from '../components/local'
 import LessSimpleCard from '../components/LessSimpleCard'
 
 const Organizations: React.FC = () => {

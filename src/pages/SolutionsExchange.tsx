@@ -80,19 +80,11 @@ const SolutionsExchange: React.FC = () => {
                 flex: 1
               }}>
                 <Typography variant="h1" sx={{
-                  fontFamily: 'Nunito, sans-serif',
-                  fontSize: '2rem',
-                  fontWeight: 600,
-                  lineHeight: 1.167,
                   color: 'var(--theme-text-primary)'
                 }}>
                   Solutions exchange
                 </Typography>
                 <Typography variant="body1" sx={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '1rem',
-                  fontWeight: 400,
-                  lineHeight: 1.5,
                   color: 'var(--theme-text-secondary)'
                 }}>
                   Explore a collection of solutions to support your business growth with exclusive offers for Accelerant Members. Submit a request if you're interested in more information.
